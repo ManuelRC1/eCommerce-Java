@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Manuel Ruz</title>
+
+
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/css/remixicon.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            FNACuel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                            <span data-feather="file"></span>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                            <span data-feather="shopping-cart"></span>
+                            Categorias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                            <span data-feather="users"></span>
+                            Digital
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                            <span data-feather="users"></span>
+                            Servicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/rest/}">
+                            <span data-feather="bar-chart-2"></span>
+                            Ver Categorias Rest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://placehold.it/400x400" width="200" height="200"
+                             th:src="${#strings.isEmpty(servicio.imagen)} ? 'http://placehold.it/350x260' : ${servicio.imagen}"
+                             class="img-responsive"/>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Titulo del libro</h4>
+                        <h6 class="product-name" th:text="${servicio.nombre}"></h6>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Fecha del evento</h4>
+                        <h6 class="product-name" th:text="${servicio.fecha}"></h6>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Horario de partir</h4>
+                        <h6 class="product-name" th:text="${servicio.horario}"></h6>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Lugar</h4>
+                        <h6 class="product-name" th:text="${servicio.localizacion}"></h6>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Duracion del viaje</h4>
+                        <h6 class="product-name" th:text="${servicio.duracion}"></h6>
+                        <h4>horas</h4>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>
+        <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+        <script th:src="@{/js/main.js}" type="application/javascript"></script>
+        <script th:src="@{/js/jquery-slim.min.js}" type="application/javascript"></script>
+        <script th:src="@{/js/popper.min.js}" type="application/javascript"></script>
+        <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

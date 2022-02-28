@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Manuel Ruz</title>
+
+
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/css/remixicon.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            FNACuel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                            <span data-feather="file"></span>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                            <span data-feather="shopping-cart"></span>
+                            Categorias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                            <span data-feather="users"></span>
+                            Digital
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                            <span data-feather="users"></span>
+                            Servicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/rest/}">
+                            <span data-feather="bar-chart-2"></span>
+                            Ver Categorias Rest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <section>
+                <h2>Productos</h2>
+                <div th:each="producto : ${productos}">
+
+                    <div class="card estilo-a">
+                        <a th:href="@{/producto/{id}(id=${producto.id})}">
+                            <div class="photo">
+                                <img src="https://placehold.it/350x260"
+                                     th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"
+                                      height="150" width="150" class="img-responsive" alt="a"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Digitales</h2>
+                <div th:each="digital : ${digitales}">
+                    <div class="card estilo-a">
+                        <a th:href="@{/digital/{id}(id=${digital.id})}">
+                            <div class="photo">
+                                <img src="https://placehold.it/350x260"
+                                     th:src="${#strings.isEmpty(digital.imagen)} ? 'http://placehold.it/350x260' : ${digital.imagen}"
+                                     height="150" width="150" class="img-responsive" alt="a"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Servicios</h2>
+                <div th:each="servicio : ${servicios}">
+
+                    <div class="card estilo-a">
+                        <a th:href="@{/servicio/{id}(id=${servicio.id})}">
+                            <div class="photo">
+                                <img src="https://placehold.it/350x260"
+                                     th:src="${#strings.isEmpty(servicio.imagen)} ? 'http://placehold.it/350x260' : ${servicio.imagen}"
+                                     height="150" width="150" class="img-responsive" alt="a"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+    <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/main.js}" type="application/javascript"></script>
+    <script th:src="@{/js/jquery-slim.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/popper.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

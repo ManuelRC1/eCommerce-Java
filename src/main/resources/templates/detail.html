@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Manuel Ruz</title>
+
+
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/css/remixicon.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
+</form>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            FNACuel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                            <span data-feather="file"></span>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                            <span data-feather="shopping-cart"></span>
+                            Categorias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                            <span data-feather="users"></span>
+                            Digital
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                            <span data-feather="users"></span>
+                            Servicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/rest/}">
+                            <span data-feather="bar-chart-2"></span>
+                            Ver Categorias Rest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <section>
+            <h2>Estilo A</h2>
+            <div class="card estilo-a">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                    </div>
+                    <p>Crema verde</p>
+                    <strong>$60</strong>
+                </a>
+            </div>
+            <div class="card estilo-a">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                    </div>
+                    <p>Jabón de baño</p>
+                    <strong>$30</strong>
+                </a>
+            </div>
+            <div class="card estilo-a">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4465830/pexels-photo-4465830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                    </div>
+                    <p>Aceite rejuvenecedor</p>
+                    <strong>$120</strong>
+                </a>
+            </div>
+        </section>
+        <section>
+            <h2>Estilo B</h2>
+            <div class="card estilo-b">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="producto 1">
+                    <span class="price">$60</span>
+                    <span class="favorite">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z"
+                                                                                                     fill="none"/><path
+                    d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+          </span>
+                </div>
+                <p>Crema verde</p>
+                <a href="#">Añadir a carrito</a>
+            </div>
+            <div class="card estilo-b">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="producto 1">
+                    <span class="price">$30</span>
+                    <span class="favorite">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z"
+                                                                                                     fill="none"/><path
+                    d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+          </span>
+                </div>
+                <p>Jabón de baño</p>
+                <a href="#">Añadir a carrito</a>
+            </div>
+            <div class="card estilo-b">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/4465830/pexels-photo-4465830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="producto 1">
+                    <span class="price">$120</span>
+                    <span class="favorite">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z"
+                                                                                                     fill="none"/><path
+                    d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+          </span>
+                </div>
+                <p>Aceite rejuvenecedor</p>
+                <a href="#">Añadir a carrito</a>
+            </div>
+        </section>
+        <section>
+            <h2>Estilo C</h2>
+            <div class="card estilo-c">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                        <span class="promo">15% de descuento</span>
+                    </div>
+                </a>
+                <div class="info-container">
+                    <h3>Crema verde</h3>
+                    <strong>$60</strong>
+                    <span class="rating">★★★★☆</span>
+                    <a href="#" class="add-cart">Añadir al carrito</a>
+                </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                        <span class="promo">15% de descuento</span>
+                    </div>
+                </a>
+                <div class="info-container">
+                    <h3>Jabón de baño</h3>
+                    <strong>$30</strong>
+                    <span class="rating">★★★☆☆</span>
+                    <a href="#" class="add-cart">Añadir al carrito</a>
+                </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="#">
+                    <div class="img-container">
+                        <img src="https://images.pexels.com/photos/4465830/pexels-photo-4465830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="producto 1">
+                        <span class="promo">15% de descuento</span>
+                    </div>
+                </a>
+                <div class="info-container">
+                    <h3>Aceite rejuvenecedor</h3>
+                    <strong>$120</strong>
+                    <a th:href=""></a>
+                    <a href="#" class="add-cart">Añadir al carrito</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+<script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>
+<script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+<script th:src="@{/js/main.js}" type="application/javascript"></script>
+<script th:src="@{/js/jquery-slim.min.js}" type="application/javascript"></script>
+<script th:src="@{/js/popper.min.js}" type="application/javascript"></script>
+<script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Manuel Ruz</title>
+
+
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/css/remixicon.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            FNACuel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                            <span data-feather="file"></span>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                            <span data-feather="shopping-cart"></span>
+                            Categorias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                            <span data-feather="users"></span>
+                            Digital
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                            <span data-feather="users"></span>
+                            Servicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/rest/}">
+                            <span data-feather="bar-chart-2"></span>
+                            Ver Categorias Rest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <form th:action="@{/tipo/digital/crear/enviar}" th:object="${digital}" method="post"
+                  style="max-width: 500px; margin: 0 auto">
+                <div class="border border-secondary rounded p-3">
+                    <input type="hidden" th:field="*{id}" id="id" />
+                    <div class="border">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Nombre:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{nombre}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">imagen:</label>
+                            <div class="col-sm-8">
+                                <input type="url" th:field="*{imagen}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Duracion:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{duracion}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">clave activacion:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{claveactivacion}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Categoria</label>
+                            <div class="col-sm-8">
+                                <select th:field="*{categoria}" class="form-control">
+                                    <option value="-1">---</option>
+                                    <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">
+                                        Categoria
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Area</label>
+                            <div class="col-sm-8">
+                                <select th:field="*{area}" class="form-control">
+                                    <option value="-1">---</option>
+                                    <option th:each="area : ${areas}" th:value="${area.id}" th:text="${area.nombre}">
+                                        Area
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Marca</label>
+                            <label class="col-sm-8">
+                                <select th:field="*{marca}" class="form-control">
+                                    <option value="-1">---</option>
+                                    <option th:each="marca : ${marcas}" th:value="${marca.id}"
+                                            th:text="${marca.nombre}">Marca
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary m-2">Guardar</button>
+                            <button type="button" class="btn btn-secondary m-2">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</main>
+    <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/main.js}" type="application/javascript"></script>
+    <script th:src="@{/js/jquery-slim.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/popper.min.js}" type="application/javascript"></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+
+</body>
+</html>
