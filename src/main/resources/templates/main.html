@@ -76,7 +76,7 @@
                 <div th:each="productos : ${producto}">
 
                     <div class="card estilo-a">
-                        <a th:href="@{/productos/{id}(id=${producto.id})}">
+                        <a th:href="@{/producto/{id}(id=${producto.id})}">
                             <div class="photo">
                                 <img src="https://placehold.it/350x260"
                                      th:src="${#strings.isEmpty(productos.imagen)} ? 'http://placehold.it/350x260' : ${productos.imagen}"
@@ -105,7 +105,7 @@
                 <div th:each="servicios : ${servicio}">
 
                     <div class="card estilo-a">
-                        <a th:href="@{/servicios/{id}(id=${servicios.id})}">
+                        <a th:href="@{/servicio/{id}(id=${servicios.id})}">
                             <div class="photo">
                                 <img src="https://placehold.it/350x260"
                                      th:src="${#strings.isEmpty(servicios.imagen)} ? 'http://placehold.it/350x260' : ${servicios.imagen}"
