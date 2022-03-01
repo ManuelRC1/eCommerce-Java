@@ -20,11 +20,16 @@
 <body>
 
 <form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" th:href="@{/tipo/digital/crear/}">Crear producto digital</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" th:href="@{/tipo/digital/}">Ver productos digitales</a>
         </li>
     </ul>
 </form>
@@ -35,9 +40,9 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" th:href="@{/}">
                             <span data-feather="home"></span>
-                            FNACuel
+                            Menu principal
                         </a>
                     </li>
                     <li class="nav-item">
@@ -76,26 +81,36 @@
     </div>
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
+    <div class="container-fluid text-center">
+        <div>
+            <a class="h5 " th:href="@{/tipo/digital/crear}">Añadir productos digitales</a>
         </div>
 
+        <div class="starter-template">
+        </div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Duracion(meses)</th>
+            <th>Editar/Borrar</th>
+            </thead>
+            <tbody>
+            <tr th:each="digitales : ${digital}">
+                <td><img th:src="${digitales.imagen}" width="100" height="100"></td>
+                <td th:text="${digitales.nombre}"></td>
+                <td th:text="${digitales.duracion}"></td>
+
+
+                <td>
+                    <a class="h5 mr-3" th:href="@{/tipo/digital/editar/{id}(id=${digitales.id})}">Editar</a>
+                    <a class="h5 mr-3" th:href="@{/tipo/digital/borrar/{id}(id=${digitales.id})}">Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
-</nav>
-    <table class="table">
-
-        <tbody>
-        <tr th:each="digitales : ${digital}">
-            <td th:text="${digitales.id}">ID</td>
-            <td th:text="${digitales.nombre}">ID</td>
-            <td><img th:src="@{digitales.imagen}" width="64px" ></td>
-            <td th:text="${digitales.claveactivacion}">Pepe Pérez</td>
-            <td th:text="${digitales.duracion}">pepe.perez@openwebinars.net</td>
-            <td><a th:href="@{/editar/{id}(id=${digitales.id})}">Editar</a></td>
-        </tr>
-        </tbody>
-    </table>
-
-</div>
 </main>
     <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>

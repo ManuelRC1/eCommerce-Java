@@ -19,19 +19,9 @@
 
 <body>
 
-<form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-6 col-md-6 mr-0" th:href="@{/}">FNACuel</a>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/tipo/servicio/crear/}">Crear Servicio</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/tipo/servicio/}">Ver Servicio</a>
-        </li>
-    </ul>
-</form>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
+</nav>
 
 <div class="container-fluid">
     <div class="row">
@@ -39,9 +29,9 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" th:href="@{/}">
                             <span data-feather="home"></span>
-                            FNACuel
+                            Menu principal
                         </a>
                     </li>
                     <li class="nav-item">
@@ -87,7 +77,6 @@
                   style="max-width: 500px; margin: 0 auto">
                 <div class="border border-secondary rounded p-3">
                     <input type="hidden" th:field="*{id}" id="id" />
-                    <div class="border">
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Concepto:</label>
                             <div class="col-sm-8">
@@ -165,7 +154,6 @@
                             <button type="button" class="btn btn-secondary m-2">Cancel</button>
                         </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>

@@ -20,7 +20,7 @@
 <body>
 
 <form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
@@ -40,9 +40,9 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" th:href="@{/}">
                             <span data-feather="home"></span>
-                            FNACuel
+                            Menu Principal
                         </a>
                     </li>
                     <li class="nav-item">
@@ -81,26 +81,40 @@
     </div>
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-<div class="container">
+<div class="container-fluid text-center">
+    <div>
+        <a class="h5 " th:href="@{/tipo/servicio/crear}">Añadir Servicio</a>
+    </div>
 
     <div class="starter-template">
     </div>
-    <table class="table">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <th>Imagen</th>
+        <th>Concepto</th>
+        <th>Localizacion</th>
+        <th>Fecha</th>
+        <th>Duracion(horas)</th>
+        <th>Editar/Borrar</th>
+        </thead>
         <tbody>
         <tr th:each="servicios : ${servicio}">
-            <td th:text="${servicios.id}"></td>
-            <td><img th:src="@{servicios.imagen}" width="64px"></td>
-            <td th:text="${servicios.duracion}"></td>
+            <td><img th:src="${servicios.imagen}" width="100" height="100"></td>
+            <td th:text="${servicios.nombre}">horas</td>
             <td th:text="${servicios.localizacion}"></td>
             <td th:text="${servicios.fecha}"></td>
             <td th:text="${servicios.duracion}"></td>
 
-            <td><a th:href="@{/editar/{id}(id=${servicios.id})}">Editar</a></td>
+            <td>
+                <a class="h5 mr-3" th:href="@{/tipo/servicio/editar/{id}(id=${servicios.id})}">Editar</a>
+                <a class="h5 mr-3" th:href="@{/tipo/servicio/borrar/{id}(id=${servicios.id})}">Borrar</a>
+            </td>
         </tr>
         </tbody>
     </table>
 
 </div>
+</main>
     <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>
     <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>

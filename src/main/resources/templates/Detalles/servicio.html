@@ -107,6 +107,55 @@
 
                 </div>
             </div>
+            <section>
+                <h2>Estilo C</h2>
+                <div class="card estilo-c">
+                    <a href="#">
+                        <div class="img-container">
+                            <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 alt="producto 1">
+                            <span class="promo">15% de descuento</span>
+                        </div>
+                    </a>
+                    <div class="info-container">
+                        <h3>Crema verde</h3>
+                        <strong>$60</strong>
+                        <span class="rating">★★★★☆</span>
+                        <a href="#" class="add-cart">Añadir al carrito</a>
+                    </div>
+                </div>
+                <div class="card estilo-c">
+                    <a href="#">
+                        <div class="img-container">
+                            <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 alt="producto 1">
+                            <span class="promo">15% de descuento</span>
+                        </div>
+                    </a>
+                    <div class="info-container">
+                        <h3>Jabón de baño</h3>
+                        <strong>$30</strong>
+                        <span class="rating">★★★☆☆</span>
+                        <a href="#" class="add-cart">Añadir al carrito</a>
+                    </div>
+                </div>
+                <div class="card estilo-c" th:each="servicios : ${servicio}">
+                    <a href="#">
+                        <div class="img-container">
+                            <img th:src="${servicios.imagen}"
+                                 alt="producto 1">
+                        </div>
+                    </a>
+                    <div class="info-container">
+                        <h3>Aceite rejuvenecedor</h3>
+                        <strong>$120</strong>
+                        <a th:href="">Borrar</a>
+                        <a th:href="@{/editar/{id}(id=${servicios.id})}" class="add-cart">Editar</a>
+                    </div>
+                </div>
+            </section>
+
+
         </main>
         <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>
         <script th:src="@{/js/bootstrap.bundle.min.js}" type="application/javascript"></script>

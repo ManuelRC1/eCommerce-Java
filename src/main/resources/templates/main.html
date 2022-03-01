@@ -20,15 +20,11 @@
 
 <body>
 
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
-        </li>
-    </ul>
-</nav>
+<form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
+
+</form>
 
 <div class="container-fluid">
     <div class="row">
@@ -36,7 +32,7 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" th:href="@{/}">
                             <span data-feather="home"></span>
                             FNACuel
                         </a>
@@ -77,13 +73,13 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <section>
                 <h2>Productos</h2>
-                <div th:each="producto : ${productos}">
+                <div th:each="productos : ${producto}">
 
                     <div class="card estilo-a">
-                        <a th:href="@{/producto/{id}(id=${producto.id})}">
+                        <a th:href="@{/productos/{id}(id=${productos.id})}">
                             <div class="photo">
                                 <img src="https://placehold.it/350x260"
-                                     th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"
+                                     th:src="${#strings.isEmpty(productos.imagen)} ? 'http://placehold.it/350x260' : ${productos.imagen}"
                                       height="150" width="150" class="img-responsive" alt="a"/>
                             </div>
                         </a>
@@ -92,12 +88,12 @@
             </section>
             <section>
                 <h2>Digitales</h2>
-                <div th:each="digital : ${digitales}">
+                <div th:each="digitales : ${digital}">
                     <div class="card estilo-a">
-                        <a th:href="@{/digital/{id}(id=${digital.id})}">
+                        <a th:href="@{/digital/{id}(id=${digitales.id})}">
                             <div class="photo">
                                 <img src="https://placehold.it/350x260"
-                                     th:src="${#strings.isEmpty(digital.imagen)} ? 'http://placehold.it/350x260' : ${digital.imagen}"
+                                     th:src="${#strings.isEmpty(digitales.imagen)} ? 'http://placehold.it/350x260' : ${digitales.imagen}"
                                      height="150" width="150" class="img-responsive" alt="a"/>
                             </div>
                         </a>
@@ -106,13 +102,13 @@
             </section>
             <section>
                 <h2>Servicios</h2>
-                <div th:each="servicio : ${servicios}">
+                <div th:each="servicios : ${servicio}">
 
                     <div class="card estilo-a">
-                        <a th:href="@{/servicio/{id}(id=${servicio.id})}">
+                        <a th:href="@{/servicios/{id}(id=${servicios.id})}">
                             <div class="photo">
                                 <img src="https://placehold.it/350x260"
-                                     th:src="${#strings.isEmpty(servicio.imagen)} ? 'http://placehold.it/350x260' : ${servicio.imagen}"
+                                     th:src="${#strings.isEmpty(servicios.imagen)} ? 'http://placehold.it/350x260' : ${servicios.imagen}"
                                      height="150" width="150" class="img-responsive" alt="a"/>
                             </div>
                         </a>

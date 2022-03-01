@@ -1,6 +1,6 @@
 package es.manu.proyectofinaldespring.entidades;
 
-import lombok.Data;
+
 
 import javax.persistence.*;
 import java.sql.Date;

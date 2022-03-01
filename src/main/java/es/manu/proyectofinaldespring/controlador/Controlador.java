@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -30,17 +31,22 @@ public class Controlador {
     private ServicioService servicioService;
 
     @GetMapping("/")
-    public String index(Model model){
-        model.addAttribute("categorias", categoriaService.listar());
-        model.addAttribute("productos", productoService.listar());
-        model.addAttribute("digitales", digitalService.listar());
-        model.addAttribute("servicios", servicioService.listar());
+    public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
+        List<Producto> resultado = (consulta == null) ? productoService.listar() : productoService.buscador(consulta);
+        List<Digital> resultado1 = (consulta == null) ? digitalService.listar() : digitalService.buscador(consulta);
+        List<Servicio> resultado2 = (consulta == null) ? servicioService.listar() : servicioService.buscador(consulta);
+
+        model.addAttribute("producto", resultado);
+        model.addAttribute("digital", resultado1);
+        model.addAttribute("servicio", resultado2);
         return "main";
     }
+
     @GetMapping("/digital/{id}")
     public String detallesDigital(@PathVariable("id") Long id, Model model) {
         Digital p = digitalService.findById(id);
         if (p != null) {
+            model.addAttribute("digitales", digitalService.listar());
             model.addAttribute("digital", p);
             return "Detalles/digital";
         }

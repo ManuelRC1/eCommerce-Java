@@ -42,7 +42,7 @@ public class ProyectoFinalDeSpringApplication
     @Override
     public void run(String... args) throws Exception
     {
-        // Inserting the data in the mysql table.
+//
 //        Area area1 = new Area("zona1");
 //        Area area2  = new Area("zona2");
 //        Area area3 = new Area("zona3");
@@ -103,9 +103,5 @@ public class ProyectoFinalDeSpringApplication
 //        productoRepository.save(producto1);
 //        productoRepository.save(producto2);
 //
-//        Date date4 = new Date(2021-11-30);
-////        Servicio servicio = new Servicio("Vuelo a Italia", )
-
-
     }
 }

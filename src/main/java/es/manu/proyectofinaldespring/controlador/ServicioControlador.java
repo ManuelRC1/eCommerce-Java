@@ -75,7 +75,7 @@ public class ServicioControlador {
     }
 
 
-    @GetMapping("/tipo/servicio/borrar/{id}")
+    @GetMapping("/borrar/{id}")
     public String borrarServicio(@PathVariable("id") Long id, Model model) {
 
         Servicio servicio = servicioService.findById(id);
