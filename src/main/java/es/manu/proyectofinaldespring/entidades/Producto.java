@@ -30,7 +30,6 @@ public class Producto {
 
 
 
-
     @ManyToOne
     @JoinColumn(name = "area")
     private Area area;
@@ -45,8 +44,13 @@ public class Producto {
     @JoinColumn(name = "marca")
     private Marca marca;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-
+    @ManyToOne
+    @JoinColumn(name = "compra_id")
+    private Compra compra;
 
 
     public Producto(){}
@@ -124,5 +128,21 @@ public class Producto {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 }
