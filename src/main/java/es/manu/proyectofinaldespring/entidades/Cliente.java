@@ -1,14 +1,12 @@
 package es.manu.proyectofinaldespring.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cliente")
 public class Cliente {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -30,6 +28,21 @@ public class Cliente {
     @Column(name = "telefono")
     private String telefono;
 
+
+
+    public Cliente(String nombre, String apellidos, String dni, String correo_electronico, String contrasena, String telefono) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.correo_electronico = correo_electronico;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+    }
+
+    public Cliente() {
+
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -37,19 +50,6 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public Cliente(String nombre, String apellidos, String dni, String correo_electronico, String contrasena) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
-        this.correo_electronico = correo_electronico;
-        this.contrasena = contrasena;
-    }
-
-    public Cliente() {
-
-    }
-
 
     public String getDni() {
         return dni;

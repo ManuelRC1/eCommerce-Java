@@ -69,8 +69,53 @@
             </div>
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <img th:src="@{/img/productos.jpg}" alt="..." width="400" height="1200"/>
 
+            <div class="wrapper">
+                <section>
+                    <h2>Productos</h2>
+                    <div th:each="productos : ${producto}">
+
+                        <div class="carta estilo-a">
+                            <a th:href="@{/producto/{id}(id=${productos.id})}">
+                                <div class="photo">
+                                    <img src="https://placehold.it/350x260"
+                                         th:src="${#strings.isEmpty(productos.imagen)} ? 'http://placehold.it/350x260' : ${productos.imagen}"
+                                         class="img-responsive" alt="a"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Digitales</h2>
+                    <div th:each="digitales : ${digital}">
+                        <div class="carta estilo-a">
+                            <a th:href="@{/digital/{id}(id=${digitales.id})}">
+                                <div class="photo">
+                                    <img src="https://placehold.it/350x260"
+                                         th:src="${#strings.isEmpty(digitales.imagen)} ? 'http://placehold.it/350x260' : ${digitales.imagen}"
+                                         class="img-responsive" alt="imagen"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Servicios</h2>
+                    <div th:each="servicios : ${servicio}">
+
+                        <div class="carta estilo-a">
+                            <a th:href="@{/servicio/{id}(id=${servicios.id})}">
+                                <div class="photo">
+                                    <img src="https://placehold.it/350x260"
+                                         th:src="${#strings.isEmpty(servicios.imagen)} ? 'http://placehold.it/350x260' : ${servicios.imagen}"
+                                         height="150" width="150" class="img-responsive" alt="a"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 </div>

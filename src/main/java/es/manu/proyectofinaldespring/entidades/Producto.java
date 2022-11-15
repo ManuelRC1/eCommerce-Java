@@ -56,7 +56,8 @@ public class Producto {
     public Producto(){}
 
 
-    public Producto(String titulo, Date fechalanzamiento, String material, String imagen, Area area, Categoria categoria, Marca marca) {
+    public Producto(Long id, String titulo, Date fechalanzamiento, String material, String imagen, Area area, Categoria categoria, Marca marca) {
+        this.id = id;
         this.titulo = titulo;
         this.fechalanzamiento = fechalanzamiento;
         this.material = material;

@@ -19,7 +19,8 @@ public class Area {
 
     public Area(){}
 
-    public Area(String nombre) {
+    public Area(Long id, String nombre) {
+        this.id = id;
         this.nombre = nombre;
     }
 

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <title>Login Form Design One | Fazt</title>
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body class="fondo">
+
+<div class="login-boxLog">
+    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" class="avatar" alt="Avatar Image">
+    <h1>Login</h1>
+    <h5 th:text="${msg}"></h5>
+    <form th:action="@{/check}" method="POST">
+        <label for="correo_electronico"></label>
+        <input type="text" name="correo_electronico" id="correo_electronico" placeholder="Correo " required>
+
+
+        <label for="contrasena">
+            <input id="contrasena" name="contrasena"
+                   pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+                   title="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. NO puede tener otros símbolos." type="password" placeholder="Contraseña" required></label>
+            <input type="submit" value="Log In">
+        <a th:href="@{/register}">¿No tienes cuenta? Create una en unos simples pasos</a>
+    </form>
+</div>
+</body>
+</html>
+
+

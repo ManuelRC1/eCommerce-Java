@@ -34,8 +34,8 @@ public class Marca {
     public Marca(){}
 
 
-
-    public Marca(String nombre, Integer ano_fundacion, String imagen) {
+    public Marca(Long id, String nombre, Integer ano_fundacion, String imagen) {
+        this.id = id;
         this.nombre = nombre;
         this.ano_fundacion = ano_fundacion;
         this.imagen = imagen;

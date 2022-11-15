@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
 body {
     font-size: .875rem;
 }
@@ -30,6 +31,7 @@ body {
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: whitesmoke;
 }
 
 .sidebar .nav-link {
@@ -91,3 +93,298 @@ body {
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.img-responsive{
+    width: 180px;
+    height: 180px;
+
+}
+.carta{
+    margin: 7px;
+}
+
+ /*==================login=================*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.login-box {
+    width: 480px;
+    height: 85%;
+    background: white;
+    color: #fff;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+.login-box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1 {
+    margin: 0;
+    margin-top: 20px;
+    color: black;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+.login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"], .login-box input[type="email"] {
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 45px;
+    color: black;
+    font-size: 16px;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background: darkred;
+    color: white;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-box a:hover {
+    color: black;
+}
+
+.login-boxLog{
+    width: 360px;
+    height: 460px;
+    background: white;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.login-boxLog .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-boxLog h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+.login-boxLog label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-boxLog input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-boxLog input[type="text"], .login-boxLog input[type="password"] {
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 45px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-boxLog input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.login-boxLog input[type="submit"]:hover {
+    cursor: pointer;
+    background: darkred;
+    color: white;
+}
+
+.login-boxLog a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-boxLog a:hover {
+    color: black;
+}
+.fondo{
+    background: lightgrey;
+}
+
+/*===================================Carta====================================*/
+
+
+.bodyCart {
+    box-sizing: border-box;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    flex-wrap: wrap;
+}
+
+.containerCart {
+    display: flex;
+}
+
+.cart {
+    width: min-content;
+    padding: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .04);
+    transition: .2s ease;
+}
+
+.cart:hover {
+    transform: scale(1.03);
+}
+
+.cart .cart-imagen {
+    position: relative;
+    width: 240px;
+    height: 200px;
+    padding: 0 15px;
+    text-align: center;
+    background: #f4f7f8;
+    border-radius: 12px;
+}
+
+.cart .cart-imagen img {
+    width: 100%;
+    transition: .4s ease;
+}
+
+.cart:hover .card-image img {
+    transform: scale(1.02)
+    rotate(-3deg)
+    translateX(-5px);
+}
+
+.card .card-image .bx-star {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 10px;
+    font-size: 20px;
+    color: #f7ae04;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .04);
+}
+
+.cart .cart-contenido h3 {
+    color: #222;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cart .cart-contenido p {
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 8px 0 22px;
+    text-align: justify;
+}
+
+.cart .cart-contenido button {
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 12px;
+    background: linear-gradient(
+            45deg, #fabd14, #eb9616
+    );
+}
+
+@media (max-width: 1280px) {
+    .bodyCart {
+        height: unset;
+        padding: 30px 0;
+    }
+
+    .containerCart {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .containerCart .cart {
+        margin: 20px;
+    }
+}

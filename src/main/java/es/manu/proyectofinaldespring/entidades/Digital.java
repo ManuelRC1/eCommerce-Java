@@ -49,7 +49,8 @@ public class Digital {
 
     public Digital(){}
 
-    public Digital(String imagen, String nombre, Integer duracion, Integer claveactivacion, Area area, Marca marca, Categoria categoria) {
+    public Digital(Long id, String imagen, String nombre, Integer duracion, Integer claveactivacion, Area area, Marca marca, Categoria categoria) {
+        this.id = id;
         this.imagen = imagen;
         this.nombre = nombre;
         this.duracion = duracion;

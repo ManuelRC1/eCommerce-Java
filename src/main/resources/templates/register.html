@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+    <link th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="fondo">
+    <div class="login-box">
+        <img src="../static/img/logo.png" th:src="@{/img/logo.png}" class="avatar" alt="Avatar Image">
+        <h1>Register</h1>
+
+        <form th:action="@{/cliente}" th:object="${cliente}" method="post">
+
+            <label for="nombre"></label><input type="text" id="nombre" placeholder="Nombre" th:field="*{nombre}" required>
+
+            <label for="apellidos"></label><input type="text" id="apellidos" placeholder="Apellidos" th:field="*{apellidos}"
+                                                  required>
+
+            <label for="email"></label><input type="email" id="email" placeholder="Email" th:field="*{correo_electronico}" required>
+
+            <label for="dni"></label><input type="text" id="dni" placeholder="DNI" pattern="[0-9]{8}[A-Za-z]{1}"
+                                            title="Debe poner 8 números y una letra" th:field="*{dni}" required>
+
+            <label for="telefono"></label><input type="text" id="telefono" placeholder="Telefono" th:field="*{telefono}"
+                                                 required>
+
+            <label>
+                <input type="password" placeholder="Contraseña" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+                       title="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+NO puede tener otros símbolos." th:field="*{contrasena}" required>
+            </label>
+            <input type="submit" value="Log In">
+            <a th:href="@{/login}">¿Tienes cuenta? Inicia sesion</a>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,24 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
 *{
     box-sizing: border-box;
+
 }
 section{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 50px 0;
 }
 section h2{
     width: 100%;
     color: #999;
-    font-family: monospace;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 .card{
-    width: 33.333333%;
+    margin: 5px;
 }
 /* Estilo A */
 .estilo-a{
-    font-family: sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 .estilo-a a{
     text-decoration: none;
@@ -44,7 +46,7 @@ section h2{
 
 /* Estilo B */
 .estilo-b{
-    font-family: sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     text-align: center;
 }
 .estilo-b .img-container{
@@ -98,7 +100,7 @@ section h2{
 
 /*Estilo C*/
 .estilo-c{
-    font-family: sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     width: 30%;
 }
 .estilo-c .img-container{
@@ -156,3 +158,4 @@ section h2{
     background-color: transparent;
     border: 1px solid black;
 }
+

@@ -48,7 +48,7 @@ public class Controlador {
         if (p != null) {
             model.addAttribute("digitales", digitalService.listar());
             model.addAttribute("digital", p);
-            return "Detalles/digital";
+            return "detalles/digital";
         }
 
         return "redirect:/";
@@ -59,7 +59,7 @@ public class Controlador {
         Servicio p = servicioService.findById(id);
         if (p != null) {
             model.addAttribute("servicio", p);
-            return "Detalles/servicio";
+            return "detalles/servicio";
         }
 
         return "redirect:/";
@@ -70,7 +70,7 @@ public class Controlador {
         Producto p = productoService.findById(id);
         if (p != null) {
             model.addAttribute("producto", p);
-            return "Detalles/producto";
+            return "detalles/producto";
         }
 
         return "redirect:/";

@@ -31,7 +31,8 @@ public class Compania {
     @OneToMany(mappedBy = "compania", orphanRemoval = true)
     private List<Servicio> servicios = new ArrayList<>();
 
-    public Compania(String nombre, Integer ano_fundacion, String calidad, String imagen) {
+    public Compania(Long id, String nombre, Integer ano_fundacion, String calidad, String imagen) {
+        this.id = id;
         this.nombre = nombre;
         this.ano_fundacion = ano_fundacion;
         this.calidad = calidad;

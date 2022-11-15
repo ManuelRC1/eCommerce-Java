@@ -10,11 +10,11 @@ import java.util.*;
 @Table(name = "categoria")
 public class Categoria {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "nombre", length = 100, nullable = false)
+    @Column(name = "nombre", length = 200, nullable = false)
     private String nombre;
 
     @Column(name = "imagen", nullable = false, length = 512)
@@ -29,13 +29,13 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria", orphanRemoval = true)
     private List<Servicio> servicios = new ArrayList<>();
 
-    public Categoria(){}
-
-    public Categoria(String nombre, String imagen) {
+    public Categoria(Long id, String nombre, String imagen) {
+        this.id = id;
         this.nombre = nombre;
         this.imagen = imagen;
-
     }
+
+    public Categoria(){}
 
 
     public Long getId() {
