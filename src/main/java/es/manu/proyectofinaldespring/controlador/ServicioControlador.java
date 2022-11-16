@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/tipo/servicio")
+@RequestMapping("/admin/tipo/servicio")
 public class ServicioControlador {
 
     @Autowired
@@ -35,7 +35,7 @@ public class ServicioControlador {
         public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
             List<Servicio> resultado = (consulta == null) ? servicioService.listar() : servicioService.buscador(consulta);
             model.addAttribute("servicio", resultado);
-            return "todo/servicios";
+            return "editar/servicios";
     }
 
     @GetMapping("/crear")
@@ -55,7 +55,7 @@ public class ServicioControlador {
 
 
         servicioService.save(servicio);
-        return "redirect:/tipo/servicio/";
+        return "redirect:/admin/tipo/servicio/";
 
     }
 
@@ -83,7 +83,7 @@ public class ServicioControlador {
         servicioService.delete(servicio);
 
 
-        return "redirect:/tipo/servicio/";
+        return "redirect:/admin/tipo/servicio/";
 
     }
 

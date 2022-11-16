@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tipo/digital")
+@RequestMapping("/admin/tipo/digital")
 public class DigitalControlador {
 
 
@@ -36,7 +36,7 @@ public class DigitalControlador {
         public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
             List<Digital> resultado = (consulta == null) ? digitalService.listar() : digitalService.buscador(consulta);
             model.addAttribute("digital", resultado);
-            return "todo/digitales";
+            return "editar/digitales";
     }
 
     @GetMapping("/crear")
@@ -54,7 +54,7 @@ public class DigitalControlador {
     public String enviarNuevoProducto(Digital digital) {
 
         digitalService.save(digital);
-        return "redirect:/tipo/digital/";
+        return "redirect:/admin/tipo/digital/";
 
     }
 
@@ -77,7 +77,7 @@ public class DigitalControlador {
     public String borrarProducto(@PathVariable("id") Long id, Model model) {
         Digital digital = digitalService.findById(id);
         digitalService.delete(digital);
-        return "redirect:/tipo/digital/";
+        return "redirect:/admin/tipo/digital/";
 
     }
 

@@ -19,20 +19,9 @@
 
 <body>
 
-<form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/admin}">FNACuel</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/servicio/crear/}">Crear Servicio</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/servicio/}">Ver Servicio</a>
-        </li>
-    </ul>
-</form>
+</nav>
 
 <div class="container-fluid">
     <div class="row">
@@ -87,39 +76,57 @@
     </div>
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-<div class="container-fluid text-center">
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <form th:action="@{/admin/tipo/compania/crear/enviar}" th:object="${compania}" method="post"
+                  style="max-width: 500px; margin: 0 auto">
+                <div class="border border-secondary rounded p-3">
+                    <input type="hidden" th:field="*{id}" id="id" />
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Nombre:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{nombre}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">imagen:</label>
+                            <div class="col-sm-8">
+                                <input type="url" th:field="*{imagen}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Duracion:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{ano_fundacion}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">clave activacion:</label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{calidad}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Categoria</label>
+                            <div class="col-sm-8">
+                                <select th:field="*{servicios}" class="form-control">
+                                    <option value="-1">---</option>
+                                    <option th:each="servicios : ${servicio}" th:value="${servicios.id}" th:text="${servicios.nombre}">
+                                        Categoria
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary m-2">Guardar</button>
+                            <button type="button" class="btn btn-secondary m-2">Cancel</button>
+                        </div>
+                    </div>
 
-    <div class="starter-template">
+            </form>
+        </div>
     </div>
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-        <th>Imagen</th>
-        <th>Concepto</th>
-        <th>Localizacion</th>
-        <th>Fecha</th>
-        <th>Duracion(horas)</th>
-        <th>Editar/Borrar</th>
-        </thead>
-        <tbody>
-        <tr th:each="servicios : ${servicio}">
-            <td><img th:src="${servicios.imagen}" width="100" height="100"></td>
-            <td th:text="${servicios.nombre}">horas</td>
-            <td th:text="${servicios.localizacion}"></td>
-            <td th:text="${servicios.fecha}"></td>
-            <td th:text="${servicios.duracion}"></td>
-
-            <td>
-                <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/servicio/editar/{id}(id=${servicios.id})}">
-                    <button type="submit" class="btn btn-warning m-2">Editar</button>
-                </a>
-                <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/servicio/borrar/{id}(id=${servicios.id})}">
-                    <button type="submit" class="btn btn-danger m-2">Borrar</button>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
 </div>
 </main>
     <script th:src="@{/js/jquery.min.js}" type="application/javascript"></script>

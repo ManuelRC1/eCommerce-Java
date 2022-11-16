@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tipo/categoria")
+@RequestMapping("/admin/tipo/categoria")
 public class CategoriaControlador {
 
      @Autowired
@@ -23,7 +23,7 @@ public class CategoriaControlador {
         public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
             List<Categoria> resultado = (consulta == null) ? categoriaService.listar() : categoriaService.buscador(consulta);
             model.addAttribute("categoria", resultado);
-            return "todo/categorias";
+            return "editar/categorias";
      }
     @GetMapping("/crear")
     public String nuevaCategoria(Model model) {
@@ -35,7 +35,7 @@ public class CategoriaControlador {
     public String enviarNuevaCategoria(Categoria categoria, Model model) {
 
         categoriaService.save(categoria);
-        return "redirect:/tipo/categoria/";
+        return "redirect:/admin/tipo/categoria/";
     }
 
 
@@ -54,7 +54,7 @@ public class CategoriaControlador {
         Categoria categoria = categoriaService.findById(id);
         categoriaService.delete(categoria);
 
-        return "redirect:/tipo/categoria/";
+        return "redirect:/admin/tipo/categoria/";
 
 
     }

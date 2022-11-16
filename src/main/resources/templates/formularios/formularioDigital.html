@@ -20,7 +20,7 @@
 <body>
 
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/admin}">FNACuel</a>
 </nav>
 
 <div class="container-fluid">
@@ -29,39 +29,45 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/}">
+                        <a class="nav-link active" th:href="@{/admin}">
                             <span data-feather="home"></span>
                             Menu principal
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/producto/}">
                             <span data-feather="file"></span>
                             Productos
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/categoria/}">
                             <span data-feather="shopping-cart"></span>
                             Categorias
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/digital/}">
                             <span data-feather="users"></span>
                             Digital
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/servicio/}">
                             <span data-feather="users"></span>
                             Servicio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/rest/}">
-                            <span data-feather="bar-chart-2"></span>
-                            Ver Categorias Rest
+                        <a class="nav-link" th:href="@{/admin/tipo/marca/}">
+                            <span data-feather="users"></span>
+                            Marca
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin/tipo/compania/}">
+                            <span data-feather="users"></span>
+                            Compania
                         </a>
                     </li>
                 </ul>
@@ -73,7 +79,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <form th:action="@{/tipo/digital/crear/enviar}" th:object="${digital}" method="post"
+            <form th:action="@{/admin/tipo/digital/crear/enviar}" th:object="${digital}" method="post"
                   style="max-width: 500px; margin: 0 auto">
                 <div class="border border-secondary rounded p-3">
                     <input type="hidden" th:field="*{id}" id="id" />

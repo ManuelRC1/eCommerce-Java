@@ -10,4 +10,5 @@ public interface ICompaniaService {
     Compania findById(Long id);
     Compania save(Compania compania);
     Compania delete(Compania compania);
+    List<Compania> buscador(String nombre);
 }

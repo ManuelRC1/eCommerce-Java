@@ -20,16 +20,16 @@
 <body>
 
 <form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">FNACuel</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/admin}">FNACuel</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/tipo/digital/crear/}">Crear producto digital</a>
+            <a class="nav-link" th:href="@{/admin/tipo/digital/crear/}">Crear producto digital</a>
         </li>
     </ul>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/tipo/digital/}">Ver productos digitales</a>
+            <a class="nav-link" th:href="@{/admin/tipo/digital/}">Ver productos digitales</a>
         </li>
     </ul>
 </form>
@@ -40,39 +40,45 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/}">
+                        <a class="nav-link active" th:href="@{/admin}">
                             <span data-feather="home"></span>
                             Menu principal
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/producto/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/producto/}">
                             <span data-feather="file"></span>
                             Productos
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/categoria/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/categoria/}">
                             <span data-feather="shopping-cart"></span>
                             Categorias
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/digital/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/digital/}">
                             <span data-feather="users"></span>
                             Digital
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/servicio/}">
+                        <a class="nav-link" th:href="@{/admin/tipo/servicio/}">
                             <span data-feather="users"></span>
                             Servicio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/rest/}">
-                            <span data-feather="bar-chart-2"></span>
-                            Ver Categorias Rest
+                        <a class="nav-link" th:href="@{/admin/tipo/marca/}">
+                            <span data-feather="users"></span>
+                            Marca
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin/tipo/compania/}">
+                            <span data-feather="users"></span>
+                            Compania
                         </a>
                     </li>
                 </ul>
@@ -82,9 +88,6 @@
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="container-fluid text-center">
-        <div>
-            <a class="h5 " th:href="@{/tipo/digital/crear}">Añadir productos digitales</a>
-        </div>
 
         <div class="starter-template">
         </div>
@@ -103,8 +106,12 @@
 
 
                 <td>
-                    <a class="h5 mr-3" th:href="@{/tipo/digital/editar/{id}(id=${digitales.id})}">Editar</a>
-                    <a class="h5 mr-3" th:href="@{/tipo/digital/borrar/{id}(id=${digitales.id})}">Borrar</a>
+                    <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/digital/editar/{id}(id=${digitales.id})}">
+                        <button type="submit" class="btn btn-warning m-2">Editar</button>
+                    </a>
+                    <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/digital/borrar/{id}(id=${digitales.id})}">
+                        <button type="submit" class="btn btn-danger m-2">Borrar</button>
+                    </a>
                 </td>
             </tr>
             </tbody>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tipo/producto")
+@RequestMapping("/admin/tipo/producto")
 public class ProductoControlador {
 
 
@@ -31,7 +31,7 @@ public class ProductoControlador {
     public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
         List<Producto> resultado = (consulta == null) ? productoService.listar() : productoService.buscador(consulta);
         model.addAttribute("producto", resultado);
-        return "todo/productos";
+        return "editar/productos";
     }
 
     @GetMapping("/crear")
@@ -49,7 +49,7 @@ public class ProductoControlador {
     public String enviarNuevoProducto(Producto producto) {
 
         productoService.save(producto);
-            return "redirect:/tipo/producto/";
+            return "redirect:/admin/tipo/producto/";
 
     }
 
@@ -72,7 +72,7 @@ public class ProductoControlador {
     public String borrarProducto(@PathVariable("id") Long id, Model model) {
         Producto producto = productoService.findById(id);
         productoService.delete(producto);
-        return "redirect:/tipo/producto/";
+        return "redirect:/admin/tipo/producto/";
 
     }
 

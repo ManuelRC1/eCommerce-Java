@@ -11,4 +11,6 @@ public interface IMarcasService {
     Marca findById(Long id);
     Marca save(Marca marca);
     Marca delete(Marca marca);
+    List<Marca> buscador(String nombre);
+
 }

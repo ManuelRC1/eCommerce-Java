@@ -1,8 +1,10 @@
 package es.manu.proyectofinaldespring.servicio;
 
 import es.manu.proyectofinaldespring.Interfaces.IMarcasService;
+import es.manu.proyectofinaldespring.entidades.Digital;
 import es.manu.proyectofinaldespring.entidades.Marca;
 import es.manu.proyectofinaldespring.entidades.Producto;
+import es.manu.proyectofinaldespring.entidades.Servicio;
 import es.manu.proyectofinaldespring.repositorios.MarcasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,5 +39,10 @@ public class MarcasService implements IMarcasService {
         Marca resultado = findById(marca.getId());
         marcasRepository.delete(resultado);
         return resultado;
+    }
+
+    @Override
+    public List<Marca> buscador(String cadena) {
+        return marcasRepository.findByNombre(cadena);
     }
 }

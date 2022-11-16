@@ -3,6 +3,7 @@ package es.manu.proyectofinaldespring.servicio;
 import es.manu.proyectofinaldespring.Interfaces.ICompaniaService;
 import es.manu.proyectofinaldespring.entidades.Compania;
 import es.manu.proyectofinaldespring.entidades.Digital;
+import es.manu.proyectofinaldespring.entidades.Servicio;
 import es.manu.proyectofinaldespring.repositorios.CompaniaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,9 @@ public class CompaniaService implements ICompaniaService {
         Compania resultado = findById(compania.getId());
         companiaRepository.delete(resultado);
         return resultado;
+    }
+    @Override
+    public List<Compania> buscador(String cadena) {
+        return companiaRepository.findByNombre(cadena);
     }
 }
