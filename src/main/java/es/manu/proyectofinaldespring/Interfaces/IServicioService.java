@@ -12,4 +12,5 @@ public interface IServicioService {
     Servicio save(Servicio servicio);
     Servicio delete(Servicio servicio);
     List<Servicio> buscador(String cadena);
+    List<Servicio> findByCompania_IdEquals(Long id);
 }

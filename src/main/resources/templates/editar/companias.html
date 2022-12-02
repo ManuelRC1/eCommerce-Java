@@ -24,12 +24,12 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/compania/crear/}">Crear producto digital</a>
+            <a class="nav-link" th:href="@{/admin/tipo/compania/crear/}">Crear compañias</a>
         </li>
     </ul>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/compania/}">Ver productos digitales</a>
+            <a class="nav-link" th:href="@{/admin/tipo/compania/}">Ver compañias</a>
         </li>
     </ul>
 </form>
@@ -101,10 +101,10 @@
             </thead>
             <tbody>
             <tr th:each="companias : ${compania}">
-                <td><img th:src="${compania.imagen}" width="100" height="100"></td>
-                <td th:text="${compania.nombre}"></td>
-                <td th:text="${compania.ano_fundacion}"></td>
-                <td th:text="${compania.calidad}"></td>
+                <td><img th:src="${companias.imagen}" width="100" height="100"></td>
+                <td th:text="${companias.nombre}"></td>
+                <td th:text="${companias.ano_fundacion}"></td>
+                <td th:text="${companias.calidad}"></td>
 
 
                 <td>

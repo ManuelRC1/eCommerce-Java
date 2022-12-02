@@ -24,12 +24,12 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search" th:value="${param.q}">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/marca/crear/}">Crear producto digital</a>
+            <a class="nav-link" th:href="@{/admin/tipo/marca/crear/}">Crear marca</a>
         </li>
     </ul>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/admin/tipo/marca/}">Ver productos digitales</a>
+            <a class="nav-link" th:href="@{/admin/tipo/marca/}">Ver marca</a>
         </li>
     </ul>
 </form>
@@ -96,7 +96,6 @@
             <th>Imagen</th>
             <th>Nombre</th>
             <th>año fundacion</th>
-            <th>Calidad</th>
             <th>Editar/Borrar</th>
             </thead>
             <tbody>
@@ -104,6 +103,7 @@
                 <td><img th:src="${marcas.imagen}" width="100" height="100"></td>
                 <td th:text="${marcas.nombre}"></td>
                 <td th:text="${marcas.ano_fundacion}"></td>
+
                 <td>
                     <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/marca/editar/{id}(id=${marcas.id})}">
                         <button type="submit" class="btn btn-warning m-2">Editar</button>

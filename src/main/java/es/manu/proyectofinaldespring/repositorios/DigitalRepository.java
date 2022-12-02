@@ -14,6 +14,11 @@ public interface DigitalRepository extends JpaRepository<Digital, Long> {
 
     List<Digital> findByNombreContains(String nombre);
 
+    @Query("select d from Digital d where d.marca.id is not null")
+    List<Digital> findByMarca_IdIsNotNull();
+
+
+
 
 
 }

@@ -1,6 +1,7 @@
 package es.manu.proyectofinaldespring.servicio;
 
 import es.manu.proyectofinaldespring.Interfaces.IProductoService;
+import es.manu.proyectofinaldespring.entidades.Compra;
 import es.manu.proyectofinaldespring.entidades.Producto;
 import es.manu.proyectofinaldespring.repositorios.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,16 +42,21 @@ public class ProductoService implements IProductoService {
         return resultado;
     }
 
+    public List<Producto> productosId(List<Long> ids){
+        return ProductoRepository.findAllById(ids);
+    }
+
     @Override
     public List<Producto> buscador(String cadena) {
         return ProductoRepository.findByTituloContainsOrMaterialContains(cadena, cadena);
     }
 
+    @Override
+    public List<Producto> findByMarca_IdIsNotNull() {
+        return ProductoRepository.findByMarca_IdIsNotNull();
+    }
 
-//    @Override
-//    public List<Producto> findByMaterialEquals(String material) {
-//
-//        List<Producto> productos = ProductoRepository.findByMaterialEquals(material);
-//        return productos ;
-//    }
+    public List<Producto> productosDeUnaCompra(Compra c){
+        return ProductoRepository.findByCompra(c);
+    }
 }

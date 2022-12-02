@@ -41,4 +41,9 @@ public class ServicioService implements IServicioService {
     public List<Servicio> buscador(String cadena) {
         return servicioRepository.findByNombreContainsOrLocalizacionContains(cadena, cadena);
     }
+
+    @Override
+    public List<Servicio> findByCompania_IdEquals(Long id) {
+        return servicioRepository.findByCompania_IdEquals(id);
+    }
 }

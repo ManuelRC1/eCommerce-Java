@@ -11,7 +11,7 @@ public interface IProductoService {
     Producto findById(Long id);
     Producto save(Producto producto);
     Producto delete(Producto producto);
+    List<Producto> productosId(List<Long> ids);
     List<Producto> buscador(String cadena);
-
-
+    List<Producto> findByMarca_IdIsNotNull();
 }

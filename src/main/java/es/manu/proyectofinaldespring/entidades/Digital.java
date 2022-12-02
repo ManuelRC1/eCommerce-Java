@@ -25,6 +25,8 @@ public class Digital {
     @Column(name = "claveactivacion")
     private Integer claveactivacion;
 
+    @Column(name = "precio", nullable = false)
+    private Double precio;
 
     @ManyToOne
     @JoinColumn(name = "area")
@@ -49,15 +51,25 @@ public class Digital {
 
     public Digital(){}
 
-    public Digital(Long id, String imagen, String nombre, Integer duracion, Integer claveactivacion, Area area, Marca marca, Categoria categoria) {
+    public Digital(Long id, String imagen, String nombre, Integer duracion, Integer claveactivacion, Double precio, Area area, Marca marca, Categoria categoria) {
         this.id = id;
         this.imagen = imagen;
         this.nombre = nombre;
         this.duracion = duracion;
         this.claveactivacion = claveactivacion;
+        this.precio = precio;
         this.area = area;
         this.marca = marca;
         this.categoria = categoria;
+
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
 
     public Long getId() {

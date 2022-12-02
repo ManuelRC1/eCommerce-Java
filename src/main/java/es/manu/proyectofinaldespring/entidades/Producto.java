@@ -4,8 +4,6 @@ package es.manu.proyectofinaldespring.entidades;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.List;
-
 
 
 @Entity
@@ -28,7 +26,8 @@ public class Producto {
     @Column(name = "imagen", length = 255)
     private String imagen;
 
-
+    @Column(name = "precio", nullable = false)
+    private Double precio;
 
     @ManyToOne
     @JoinColumn(name = "area")
@@ -55,16 +54,25 @@ public class Producto {
 
     public Producto(){}
 
-
-    public Producto(Long id, String titulo, Date fechalanzamiento, String material, String imagen, Area area, Categoria categoria, Marca marca) {
+    public Producto(Long id, String titulo, Date fechalanzamiento, String material, String imagen, Double precio, Area area, Categoria categoria, Marca marca) {
         this.id = id;
         this.titulo = titulo;
         this.fechalanzamiento = fechalanzamiento;
         this.material = material;
         this.imagen = imagen;
+        this.precio = precio;
         this.area = area;
         this.categoria = categoria;
         this.marca = marca;
+    }
+
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
 
     public Long getId() {

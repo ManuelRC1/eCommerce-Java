@@ -1,85 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../../static/css/prueba.css" th:href="@{/css/prueba.css}"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
     <title>Manuel Ruz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link th:href="@{/css/bootstrap.min.css}" href="../../static/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/css/style.css}" href="../../static/css/style.css" rel="stylesheet"/>
+
 </head>
 <body>
-
-<form class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">
-        FNACuel
-    </a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" name="q" aria-label="Search"
-           th:value="${param.q}">
-</form>
-
-<div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/}">
-                            <i class="fa-solid fa-bars-sort"></i>
-                            Menu principal
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/producto/}">
-                            <span data-feather="file"></span>
-                            Productos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/categoria/}">
-                            <span data-feather="shopping-cart"></span>
-                            Categorias
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/digital/}">
-                            <span data-feather="users"></span>
-                            Digital
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tipo/servicio/}">
-                            <span data-feather="users"></span>
-                            Servicio
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-    </div>
+<div class="menu-btn">
+    <i class="fas fa-bars fa-2x"></i>
 </div>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <div class="bodyCart">
-        <div class="containerCart" th:each="digitales : ${digital}">
-            <a th:href="@{/digital/{id}(id=${digitales.id})}">
-                <div class="cart">
-                    <div class="cart-imagen">
-                        <img src="https://placehold.it/350x260"
-                             th:src="${#strings.isEmpty(digitales.imagen)} ? 'http://placehold.it/350x260' : ${digitales.imagen}"
-                             class="img-responsive" alt="a"/>
-                    </div>
-                    <div class="cart-contenido">
-                        <h3 th:text="${digitales.nombre}"></h3>
-                        <button class="añadirCarta">
-                            Añadir
-                        </button>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
 
-</main>
+<div class="container">
+    <!-- Nav -->
+    <nav class="main-nav">
+        <a th:href="@{/}">
+            <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="FNACuel" class="logo">
+        </a>
+        <ul class="main-menu">
+            <li><a th:href="@{/}">Menu principal</a></li>
+            <li><a th:href="@{/tipo/producto/}">Productos</a></li>
+            <li><a th:href="@{/tipo/servicio/}">Servicios</a></li>
+            <li><a th:href="@{/tipo/digital/}">Productos Digitales</a></li>
+        </ul>
+
+        <ul class="right-menu">
+            <li>
+                <a href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<section class="home-cards">
+    <div th:each="digitales : ${dìgital}">
+        <img th:src="${#strings.isEmpty(digitales.imagen)} ? 'http://placehold.it/350x260' : ${digitales.imagen}"/>
+        <h3 th:text="${digitales.nombre}"></h3>
+        <a href="#">Ver productos <i class="fas fa-chevron-right"></i></a>
+    </div>
+</section>
 </body>
+<script src="https://kit.fontawesome.com/b8e772e179.js" crossorigin="anonymous"></script>
+<script src="../../static/js/prueba.js" th:src="@{/js/prueba.js}"></script>
 </html>

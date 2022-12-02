@@ -98,6 +98,7 @@
         <th>Localizacion</th>
         <th>Fecha</th>
         <th>Duracion(horas)</th>
+        <th>Precio</th>
         <th>Editar/Borrar</th>
         </thead>
         <tbody>
@@ -107,7 +108,7 @@
             <td th:text="${servicios.localizacion}"></td>
             <td th:text="${servicios.fecha}"></td>
             <td th:text="${servicios.duracion}"></td>
-
+            <td th:text="${servicios.precio}">€</td>
             <td>
                 <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/servicio/editar/{id}(id=${servicios.id})}">
                     <button type="submit" class="btn btn-warning m-2">Editar</button>

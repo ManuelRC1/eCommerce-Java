@@ -96,6 +96,7 @@
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Duracion(meses)</th>
+                <th>Precio</th>
                 <th>Editar/Borrar</th>
                 </thead>
                 <tbody>
@@ -103,7 +104,7 @@
                     <td><img th:src="${digitales.imagen}" width="100" height="100"></td>
                     <td th:text="${digitales.nombre}"></td>
                     <td th:text="${digitales.duracion}"></td>
-
+                    <td th:text="${digitales.precio}">€</td>
 
                     <td>
                         <a class="h5 mr-3" th:href="@{/admin/tipo/digital/editar/{id}(id=${digitales.id})}">Editar</a>
@@ -118,6 +119,7 @@
                 <th>Nombre del producto</th>
                 <th>Material</th>
                 <th>Fecha Lanzamiento</th>
+                <th>Precio</th>
                 <th>Editar/Borrar</th>
                 </thead>
                 <tbody>
@@ -126,6 +128,7 @@
                     <td th:text="${productos.titulo}">horas</td>
                     <td th:text="${productos.material}"></td>
                     <td th:text="${productos.fechalanzamiento}"></td>
+                    <td th:text="${productos.precio}">€</td>
 
 
                     <td>
@@ -142,6 +145,7 @@
                 <th>Localizacion</th>
                 <th>Fecha</th>
                 <th>Duracion(horas)</th>
+                <th>Precio</th>
                 <th>Editar/Borrar</th>
                 </thead>
                 <tbody>
@@ -151,7 +155,7 @@
                     <td th:text="${servicios.localizacion}"></td>
                     <td th:text="${servicios.fecha}"></td>
                     <td th:text="${servicios.duracion}"></td>
-
+                    <td th:text="${servicios.precio}">€</td>
                     <td>
                         <a class="h5 mr-3" th:href="@{/admin/tipo/servicio/editar/{id}(id=${servicios.id})}">Editar</a>
                         <a class="h5 mr-3" th:href="@{/admin/tipo/servicio/borrar/{id}(id=${servicios.id})}">Borrar</a>

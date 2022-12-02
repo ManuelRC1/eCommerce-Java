@@ -11,4 +11,5 @@ public interface IDigitalService {
     Digital save(Digital digital);
     Digital delete(Digital digital);
     List<Digital> buscador(String cadena);
+    List<Digital> findByMarca_IdIsNotNull();
 }

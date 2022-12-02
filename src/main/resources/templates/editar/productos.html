@@ -99,6 +99,7 @@
             <th>Nombre del producto</th>
             <th>Material</th>
             <th>Fecha Lanzamiento</th>
+            <th>Precio</th>
             <th>Editar/Borrar</th>
             </thead>
             <tbody>
@@ -107,6 +108,7 @@
                 <td th:text="${productos.titulo}">horas</td>
                 <td th:text="${productos.material}"></td>
                 <td th:text="${productos.fechalanzamiento}"></td>
+                <td th:text="${productos.precio}">€</td>
                 <td>
                     <a class="h4 mr-2" style="text-decoration: none" th:href="@{/admin/tipo/producto/editar/{id}(id=${productos.id})}">
                         <button type="submit" class="btn btn-warning m-2">Editar</button>

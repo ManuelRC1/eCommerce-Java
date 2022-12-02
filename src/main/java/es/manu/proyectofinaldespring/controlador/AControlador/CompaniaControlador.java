@@ -1,4 +1,4 @@
-package es.manu.proyectofinaldespring.controlador;
+package es.manu.proyectofinaldespring.controlador.AControlador;
 
 import es.manu.proyectofinaldespring.entidades.Compania;
 import es.manu.proyectofinaldespring.servicio.CompaniaService;

@@ -41,4 +41,9 @@ public class DigitalService implements IDigitalService {
     public List<Digital> buscador(String cadena) {
         return digitalRepository.findByNombreContains(cadena);
     }
+
+    @Override
+    public List<Digital> findByMarca_IdIsNotNull() {
+        return digitalRepository.findByMarca_IdIsNotNull();
+    }
 }

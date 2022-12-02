@@ -2,8 +2,6 @@ package es.manu.proyectofinaldespring.entidades;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "servicio")
@@ -31,6 +29,9 @@ public class Servicio {
     @Column(name = "localizacion", nullable = false, length = 200)
     private String localizacion;
 
+    @Column(name = "precio", nullable = false)
+    private Double precio;
+
     @ManyToOne
     @JoinColumn(name = "area")
     private Area area;
@@ -54,7 +55,7 @@ public class Servicio {
 
     public Servicio(){}
 
-    public Servicio(Long id, String nombre, String imagen, Date fecha, Integer horario, Integer duracion, String localizacion, Area area, Compania compania, Categoria categoria) {
+    public Servicio(Long id, String nombre, String imagen, Date fecha, Integer horario, Integer duracion, String localizacion, Double precio, Area area, Compania compania, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.imagen = imagen;
@@ -62,9 +63,20 @@ public class Servicio {
         this.horario = horario;
         this.duracion = duracion;
         this.localizacion = localizacion;
+        this.precio = precio;
         this.area = area;
         this.compania = compania;
         this.categoria = categoria;
+        this.cliente = cliente;
+        this.compra = compra;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
 
     public Long getId() {

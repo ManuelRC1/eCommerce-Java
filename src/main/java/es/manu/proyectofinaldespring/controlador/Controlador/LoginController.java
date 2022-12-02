@@ -1,4 +1,4 @@
-package es.manu.proyectofinaldespring.controlador;
+package es.manu.proyectofinaldespring.controlador.Controlador;
 
 import es.manu.proyectofinaldespring.entidades.Cliente;
 import es.manu.proyectofinaldespring.servicio.ClienteService;
@@ -56,12 +56,12 @@ public class LoginController {
     }
 
     @PostMapping("/check")
-    public String Postlogin(@RequestParam("nombreusuario") String correo, @RequestParam("contrasena") String codificado, HttpSession session, BindingResult bindingResult) {
+    public String Postlogin(@RequestParam("correo") String correo, @RequestParam("contrasena") String codificado, HttpSession session) {
         Cliente cliente = clienteService.findByCorreo_electronico(correo);
         String passwdCode = cliente.getContrasena();
         if (passwordEncoder.matches(codificado, passwdCode)) {
             session.setAttribute("usuario", clienteService.findByCorreo_electronico(correo));
-            return "main";
+            return "principal";
         } else {
             return "redirect:/login";
         }

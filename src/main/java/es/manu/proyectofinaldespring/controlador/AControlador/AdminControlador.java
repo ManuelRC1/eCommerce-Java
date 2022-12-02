@@ -1,4 +1,4 @@
-package es.manu.proyectofinaldespring.controlador;
+package es.manu.proyectofinaldespring.controlador.AControlador;
 
 import es.manu.proyectofinaldespring.entidades.*;
 import es.manu.proyectofinaldespring.servicio.*;
@@ -32,7 +32,7 @@ public class AdminControlador {
     private CompaniaService companiaService;
 
     @GetMapping("/admin")
-    public String index(Model model, @RequestParam(name = "q", required = false) String consulta) {
+    public String index(Model model, @RequestParam(name = "q", required = false) String consulta){
         List<Producto> resultado = (consulta == null) ? productoService.listar() : productoService.buscador(consulta);
         List<Digital> resultado1 = (consulta == null) ? digitalService.listar() : digitalService.buscador(consulta);
         List<Servicio> resultado2 = (consulta == null) ? servicioService.listar() : servicioService.buscador(consulta);
