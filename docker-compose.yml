@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  mysql-FNACuel:
+    image: mysql
+    container_name: FNACuel
+    environment:
+      MYSQL_ROOT_PASSWORD: quevedo
+      MYSQL_DATABASE: FNACuel
+    ports:
+      - "3306:3306"
