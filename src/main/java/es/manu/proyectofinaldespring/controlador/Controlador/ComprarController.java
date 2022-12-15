@@ -1,8 +1,6 @@
 package es.manu.proyectofinaldespring.controlador.Controlador;
 
-import es.manu.proyectofinaldespring.entidades.Cliente;
-import es.manu.proyectofinaldespring.entidades.Compra;
-import es.manu.proyectofinaldespring.entidades.Producto;
+import es.manu.proyectofinaldespring.entidades.*;
 import es.manu.proyectofinaldespring.repositorios.ClienteRepository;
 import es.manu.proyectofinaldespring.repositorios.CompraRepository;
 import es.manu.proyectofinaldespring.servicio.*;
@@ -11,6 +9,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -46,13 +46,27 @@ public class ComprarController {
         List<Long> contenido = (List<Long>) session.getAttribute("carrito");
         return (contenido == null) ? null : productoService.productosId(contenido);
     }
+    @ModelAttribute("carrito2")
+    public List<Servicio> servicioCarrito(){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito2");
+        return (contenido == null) ? null : servicioService.serviciosId(contenido);
+    }
+
+    @ModelAttribute("carrito3")
+    public List<Digital> digitalCarrito(){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito3");
+        return (contenido == null) ? null : digitalService.digitalesId(contenido);
+    }
 
     @ModelAttribute("total_carrito")
-    public Double totalCarrtio(){
+    public Double totalCarrito(){
         List<Producto> productosCarrito = productosCarrito();
+        List<Servicio> servicioCarrito = servicioCarrito();
+
+
         if (productosCarrito != null){
-            return productosCarrito.stream()
-                    .mapToDouble(p -> p.getPrecio())
+            return productosCarrito
+                    .stream().mapToDouble(p -> p.getPrecio())
                     .sum();
         }
         return 0.0;
@@ -60,32 +74,64 @@ public class ComprarController {
 
     @ModelAttribute("mis_compras")
     public List<Compra> misCompras(){
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        cliente = clienteService.findByCorreo_electronico(email);
+        cliente = (Cliente) session.getAttribute("usuario");
         return compraService.porCliente(cliente);
     }
 
     @GetMapping("/carrito")
-    public String verCarrito(Model model){
+    public String verCarrito(){
         return "app/compra/carrito";
     }
 
-    @GetMapping("/carrito/add/{id}")
-    public String addCarrito(Model model, @PathVariable Long id){
-        List<Long> contenido = (List<Long>) session.getAttribute("carrito");
+    @GetMapping("/carrito/add/producto/{id}")
+    public String addCarritoP(@PathVariable Long id){
+        if (session.getAttribute("usuario") != null) {
+                List<Long> contenido = (List<Long>) session.getAttribute("carrito");
+                if (contenido == null)
+                    contenido = new ArrayList<>();
+                if (!contenido.contains(id))
+                    contenido.add(id);
+                session.setAttribute("carrito", contenido);
+                return "redirect:/app/carrito";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @GetMapping("/carrito/add/servicio/{id}")
+    public String addCarritoS(@PathVariable Long id){
+        if (session.getAttribute("usuario") != null) {
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito2");
         if (contenido == null)
             contenido = new ArrayList<>();
         if (!contenido.contains(id))
             contenido.add(id);
-        session.setAttribute("carrito", contenido);
+        session.setAttribute("carrito2", contenido);
         return "redirect:/app/carrito";
+        } else {
+            return "redirect:/";
+        }
+    }
+    @GetMapping("/carrito/add/digital/{id}")
+    public String addCarritoD(@PathVariable Long id){
+        if (session.getAttribute("usuario") != null) {
+            List<Long> contenido = (List<Long>) session.getAttribute("carrito3");
+            if (contenido == null)
+                contenido = new ArrayList<>();
+            if (!contenido.contains(id))
+                contenido.add(id);
+            session.setAttribute("carrito3", contenido);
+            return "redirect:/app/carrito";
+        } else {
+            return "redirect:/";
+        }
     }
 
-    @GetMapping("/carrito/eliminar/{id}")
-    public String borrarDelCarrito(Model model, @PathVariable Long id){
+    @GetMapping("/carrito/eliminar/producto/{id}")
+    public String borrarDelCarritoP(@PathVariable Long id){
         List<Long> contenido = (List<Long>) session.getAttribute("carrito");
         if (contenido == null)
-            return "redirect:/public/tienda";
+            return "redirect:/tipo/producto";
         contenido.remove(id);
         if (contenido.isEmpty())
             session.removeAttribute("carrito");
@@ -94,28 +140,106 @@ public class ComprarController {
         return "redirect:/app/carrito";
     }
 
-    @GetMapping("/carrito/finalizar")
-    public String checkout(){
+    @GetMapping("/carrito/eliminar/servicio/{id}")
+    public String borrarDelCarritoS(@PathVariable Long id){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito2");
+        if (contenido == null)
+            return "redirect:/tipo/servicio";
+        contenido.remove(id);
+        if (contenido.isEmpty())
+            session.removeAttribute("carrito2");
+        else
+            session.setAttribute("carrito2", contenido);
+        return "redirect:/app/carrito";
+    }
+
+    @GetMapping("/carrito/eliminar/digital/{id}")
+    public String borrarDelCarritoD(@PathVariable Long id){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito3");
+        if (contenido == null)
+            return "redirect:/tipo/digital";
+        contenido.remove(id);
+        if (contenido.isEmpty())
+            session.removeAttribute("carrito3");
+        else
+            session.setAttribute("carrito3", contenido);
+        return "redirect:/app/carrito";
+    }
+
+
+
+    @GetMapping("/carrito/producto/finalizar")
+    public String checkoutProducto(){
         List<Long> contenido = (List<Long>) session.getAttribute("carrito");
         if (contenido == null)
-            return "redirect:/public/tienda";
+            return "redirect:/tipo/producto";
         List<Producto> productos = productosCarrito();
 
-        Compra c = compraService.insertar(new Compra(), session);
+        Compra c = compraService.insertarProductos(new Compra(), session);
 
         productos.forEach(p -> compraService.addProductoCompra(p, c));
         session.removeAttribute("carrito");
 
-        return "redirect:/app/compra/factura/"+c.getId();
+        return "redirect:/app/compra/factura/producto/"+ c.getId();
     }
 
-    @GetMapping("/compra/factura/{id}")
-    public String factura(Model model, @PathVariable Long id){
+    @GetMapping("/carrito/servicio/finalizar")
+    public String checkoutServicio(){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito2");
+        if (contenido == null)
+            return "redirect:/tipo/servicio";
+        List<Servicio> servicios = servicioCarrito();
+
+        Compra c = compraService.insertarServicios(new Compra(), session);
+
+        servicios.forEach(s -> compraService.addServicioCompra(s, c));
+        session.removeAttribute("carrito2");
+
+        return "redirect:/app/compra/factura/servicio/" + c.getId();
+    }
+
+    @GetMapping("/carrito/digital/finalizar")
+    public String checkoutDigital(){
+        List<Long> contenido = (List<Long>) session.getAttribute("carrito3");
+        if (contenido == null)
+            return "redirect:/tipo/digital";
+        List<Digital> digitales = digitalCarrito();
+
+        Compra c = compraService.insertarDigitales(new Compra(), session);
+
+        digitales.forEach(d -> compraService.addDigitalCompra(d, c));
+        session.removeAttribute("carrito3");
+
+        return "redirect:/app/compra/factura/digital/" + c.getId();
+    }
+
+    @GetMapping("/compra/factura/producto/{id}")
+    public String facturaProducto(Model model, @PathVariable Long id){
         Compra c = compraService.findById(id);
         List<Producto> productos = productoService.productosDeUnaCompra(c);
         model.addAttribute("productos", productos);
         model.addAttribute("compra", c);
         model.addAttribute("total_compra", productos.stream().mapToDouble(p -> p.getPrecio()).sum());
+        return "app/compra/factura";
+    }
+
+    @GetMapping("/compra/factura/servicio/{id}")
+    public String facturaServicio(Model model, @PathVariable Long id){
+        Compra c = compraService.findById(id);
+        List<Servicio> servicios = servicioService.serviciosDeUnaCompra(c);
+        model.addAttribute("servicios", servicios);
+        model.addAttribute("compra", c);
+        model.addAttribute("total_compra", servicios.stream().mapToDouble(s -> s.getPrecio()).sum());
+        return "app/compra/factura";
+    }
+
+    @GetMapping("/compra/factura/digital/{id}")
+    public String facturaDigital(Model model, @PathVariable Long id){
+        Compra c = compraService.findById(id);
+        List<Digital> digitales = digitalService.digitalesDeUnaCompra(c);
+        model.addAttribute("digitales", digitales);
+        model.addAttribute("compra", c);
+        model.addAttribute("total_compra", digitales.stream().mapToDouble(d -> d.getPrecio()).sum());
         return "app/compra/factura";
     }
 

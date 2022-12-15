@@ -1,4 +1,4 @@
-package es.manu.proyectofinaldespring.controlador.AControlador;
+package es.manu.proyectofinaldespring.controlador;
 
 
 import es.manu.proyectofinaldespring.entidades.Digital;

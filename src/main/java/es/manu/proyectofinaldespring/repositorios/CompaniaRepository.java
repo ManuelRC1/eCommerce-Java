@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface CompaniaRepository extends JpaRepository<Compania, Long> {
+    List<Compania> findByNombreContains(String nombre);
 
-    List<Compania> findByNombre(String nombre);
 
 
 

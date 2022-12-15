@@ -39,6 +39,6 @@ public class CompaniaService implements ICompaniaService {
     }
     @Override
     public List<Compania> buscador(String cadena) {
-        return companiaRepository.findByNombre(cadena);
+        return companiaRepository.findByNombreContains(cadena);
     }
 }

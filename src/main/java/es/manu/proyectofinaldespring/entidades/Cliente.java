@@ -1,8 +1,11 @@
 package es.manu.proyectofinaldespring.entidades;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 
 @Entity
+@EntityListeners({AuditingEntityListener.class})
 @Table(name = "cliente")
 public class Cliente {
     @Id

@@ -42,7 +42,23 @@ public class ProyectoFinalDeSpringApplication
     @Override
     public void run(String... args) throws Exception {
 
-        Date date1 = new Date(1346524199000L);
+        Date dateP1 = new Date(1327252800000L);
+        Date dateP2 = new Date(1499188800000L);
+        Date dateP3 = new Date(1480872000000L);
+        Date dateP4 = new Date(1233163200000L);
+        Date dateP5 = new Date(1551374400000L);
+        Date dateP6 = new Date(1642094400000L);
+        Date dateP7 = new Date(1412529600000L);
+        Date dateP8 = new Date(1627406400000L);
+        Date dateP9 = new Date(1280942400000L);
+        Date dateP10 = new Date(1438708800000L);
+        Date dateP11 = new Date(1345137600000L);
+        Date dateP12 = new Date(1417713600000L);
+        Date dateP13 = new Date(1521566400000L);
+        Date dateP14 = new Date(1526836800000L);
+        Date dateP15 = new Date(1515172800000L);
+        Date dateP16 = new Date(1178731200000L);
+
 
         Area area1 = new Area(1L, "Zona 1");
         Area area2  = new Area( 2L, "Zona 2");
@@ -52,34 +68,25 @@ public class ProyectoFinalDeSpringApplication
         areaRepository.save(area2);
         areaRepository.save(area3);
 
-        Categoria categoria1 = new Categoria(1L,"libros", "/img/productosA.jpg");
-        Categoria categoria2 = new Categoria(2L, "servicios","https://blog.orange.es/wp-content/uploads/sites/4/2021/09/todointernet.jpg");
-        Categoria categoria3 = new Categoria(3L, "digital", "https://es-commerce.com/imagenes/como-crear-una-tienda-online-de-productos-de-segunda-mano.jpg");
+        Categoria categoria1 = new Categoria(1L,"Productos", "/img/categorias/productos.jpg");
+        Categoria categoria2 = new Categoria(2L, "Servicios","/img/categorias/servicios.jpg");
+        Categoria categoria3 = new Categoria(3L, "Digital", "/img/categorias/digitales.jpg");
 
         categoriaRepository.save(categoria1);
         categoriaRepository.save(categoria2);
         categoriaRepository.save(categoria3);
 
-        Compania compania = new Compania(1L, "iberia", 1923, "media", "https://www.aeropuertoinfo.com/wp-content/uploads/Logo-Iberia.png");
-        Compania compania1 = new Compania(2L, "Air Europa", 1923, "media-alta", "https://1000marcas.net/wp-content/uploads/2020/11/Air-Europa-logo.png");
-        Compania compania2 = new Compania(3L, "Turkish Airlines", 1975, "alta", "https://1000marcas.net/wp-content/uploads/2020/03/logo-Turkish-Airlines.png");
-        Compania compania3 = new Compania(4L, "Emirates", 2001, "muy alta", "https://logos-marcas.com/wp-content/uploads/2020/12/Emirates-Simbolo.png");
 
 
-        companiaRepository.save(compania);
-        companiaRepository.save(compania1);
-        companiaRepository.save(compania2);
-        companiaRepository.save(compania3);
-
-        Marca marca = new Marca(1L, "Hasbro", 1945, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hasbro_4c_no_R.png/1024px-Hasbro_4c_no_R.png");
-        Marca marca1 = new Marca(2L, "Devir", 1934, "https://yt3.ggpht.com/ytc/AKedOLQNlslsaaTg6EpR5HNWBoDFw2BdoY91ZXsCI9312g=s900-c-k-c0x00FFF-no-rj");
-        Marca marca2 = new Marca(3L, "Edge", 1956, "http://www.edgeent.com/static/img/LOGO_EDGE_WHITE.jpg");
-        Marca marca3 = new Marca(4L,"McAfee", 1954, "https://pbs.twimg.com/profile_images/1336105195026038785/4r_DduTZ_400x400.jpg");
-        Marca marca4 = new Marca(5L, "Destino", 1960, "https://www.planetadelibros.com/img/sellos_og/logo_DESTINO.jpg");
-        Marca marca5 = new Marca(6L, "Planeta", 1910, "https://pbs.twimg.com/profile_images/1274933503864590341/20Imga6R_400x400.png");
-        Marca marca6 = new Marca(7L,"Microsoft", 1989, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg/640px-Microsoft_Office_logo_%282019%E2%80%93present%29.svg.png");
-        Marca marca7 = new Marca(8L,"Karpesky", 1921, "https://latam.kaspersky.com/content/es-mx/images/repository/pr/the-company-unveils-new-branding-and-visual-identity-1.jpg");
-        Marca marca8 = new Marca(9L, "Asmodee", 2013, "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Asmodee.svg/1280px-Asmodee.svg.png");
+        Marca marca = new Marca(1L, "Hasbro", 1945, "/img/marcas/hasbro.jpg");
+        Marca marca1 = new Marca(2L, "Devir", 1934, "/img/marcas/devir.jpg");
+        Marca marca2 = new Marca(3L, "Edge", 1956, "/img/marcas/edge.jpg");
+        Marca marca3 = new Marca(4L,"McAfee", 1954, "/img/marcas/mcafee.jpg");
+        Marca marca4 = new Marca(5L, "Destino", 1960, "/img/marcas/destino.jpg");
+        Marca marca5 = new Marca(6L, "Planeta", 1910, "/img/marcas/planeta.jpg");
+        Marca marca6 = new Marca(7L,"Microsoft", 1989, "/img/marcas/office.jpg");
+        Marca marca7 = new Marca(8L,"Karpesky", 1921, "/img/marcas/karpesky.jpg");
+        Marca marca8 = new Marca(9L, "Asmodee", 2013, "/img/marcas/asmodee.jpg");
 
         marcasRepository.save(marca);
         marcasRepository.save(marca1);
@@ -91,19 +98,23 @@ public class ProyectoFinalDeSpringApplication
         marcasRepository.save(marca7);
         marcasRepository.save(marca8);
 
-        Producto producto = new Producto(1L, "La Vall de la Llum", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/a0/b9/6f/7322016/1540-1.jpg", 15.0,  area1, categoria1, marca1);
-        Producto producto1 = new Producto(2L, "Violeta", date1, "papel", "https://static.fnac-static.com/multimedia/Images/ES/NR/da/2b/6a/6958042/1540-1.jpg", 10.0, area1, categoria1, marca5);
-        Producto producto2 = new Producto(3L, "La bestia", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/bb/6d/6d/7171515/1540-1.jpg", 11.0, area1, categoria1, marca4);
-        Producto producto3 = new Producto(4L, "El juicio del agua", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/30/8b/61/6392624/1540-1.jpg", 16.0, area1, categoria1, marca1);
-        Producto producto4 = new Producto(5L, "La bestia", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/e8/c1/74/7651816/1540-1.jpg", 11.0, area1, categoria1, marca4);
-        Producto producto5 = new Producto(5L, "Bajo la misma estrella", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/8a/f8/0a/718986/1540-1.jpg", 25.0, area1, categoria1, marca4);
-        Producto producto6 = new Producto(6L, "La Vall de la Llum", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/a0/b9/6f/7322016/1540-1.jpg", 9.0, area1, categoria1, marca);
-        Producto producto7 = new Producto(7L, "Violeta", date1, "papel", "https://static.fnac-static.com/multimedia/Images/ES/NR/da/2b/6a/6958042/1540-1.jpg", 8.0, area1, categoria1, marca5);
-        Producto producto8 = new Producto(8L, "La bestia", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/bb/6d/6d/7171515/1540-1.jpg", 7.0, area1, categoria1, marca4);
-        Producto producto9 = new Producto(9L, "El juicio del agua", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/30/8b/61/6392624/1540-1.jpg", 12.0, area1, categoria1, marca5);
-        Producto producto10 = new Producto(10L, "La bestia", date1, "papel y carton", "https://static.fnac-static.com/multimedia/Images/ES/NR/e8/c1/74/7651816/1540-1.jpg",13.0, area1, categoria1, marca3);
-        Producto producto11 = new Producto(11L, "Juego de cartas Introducción Yo-Kai 2", date1, "carton y plastico", "https://static.fnac-static.com/multimedia/Images/ES/NR/3b/76/15/1406523/1507-1/tsp20171024134252/Juego-de-cartas-Introduccion-Yo-Kai-2.jpg", 12.0, area1, categoria1, marca);
-        Producto producto12 = new Producto(12L, "La bestia", date1, "plastico", "https://static.fnac-static.com/multimedia/Images/ES/NR/a2/b8/6d/7190690/1507-1.jpg",13.0, area1, categoria1, marca2);
+        Producto producto = new Producto(1L, "La Vall de la Llum", dateP1, "papel y carton", "/img/productos/laVallDeLaLlum.jpg", 15.0,  area1, categoria1, marca2);
+        Producto producto1 = new Producto(2L, "Violeta", dateP2, "papel", "/img/productos/violeta.jpg", 10.0, area1, categoria1, marca5);
+        Producto producto2 = new Producto(3L, "La Bestia", dateP3, "papel y carton", "/img/productos/bestia.jpg", 11.0, area1, categoria1, marca4);
+        Producto producto15 = new Producto(15L, "Réplica Star Wars - Casco de piloto de Luke Skywalker", dateP4, "carton y plastico", "/img/productos/casco.jpg", 99.9, area1, categoria1, marca);
+        Producto producto3 = new Producto(4L, "El Juicio del Agua", dateP5, "papel y carton", "/img/productos/juicioDelAgua.jpg", 16.0, area1, categoria1, marca2);
+        Producto producto4 = new Producto(5L, "La Primera Detective", dateP6, "papel y carton", "/img/productos/primeraDetective.jpg", 11.0, area1, categoria1, marca4);
+        Producto producto16 = new Producto(16L, "Mi Pequeña Biblioteca (Peppa Pig)", dateP7, "plastico", "/img/productos/peppaPig.jpg",20.0, area1, categoria1, marca1);
+        Producto producto5 = new Producto(5L, "Bajo la Misma Estrella", dateP8, "papel y carton", "/img/productos/mismaEstrella.jpg", 25.0, area1, categoria1, marca5);
+        Producto producto6 = new Producto(6L, "Todo arde", dateP9, "papel y carton", "/img/productos/todoArde.jpg", 9.0, area1, categoria1, marca4);
+        Producto producto7 = new Producto(7L, "Todo va a mejorar", dateP10, "papel", "/img/productos/todoMejorar.jpg", 8.0, area1, categoria1, marca5);
+        Producto producto13 = new Producto(13L, "Bop it! Star Wars", dateP11, "carton y plastico", "/img/productos/Bop_itStarWars.jpg", 30.9, area1, categoria1, marca);
+        Producto producto14 = new Producto(14L, "Tragabolas", dateP12, "plastico", "/img/productos/tragabolas.jpg",20.0, area1, categoria1, marca1);
+        Producto producto8 = new Producto(8L, "Lejos de Luisiana", dateP13, "papel y carton", "/img/productos/lejosLuisiana.jpg", 21.5, area1, categoria1, marca4);
+        Producto producto9 = new Producto(9L, "Se tiene que morir mucha gente", dateP14, "papel y carton", "/img/productos/morirGente.jpg", 12.0, area1, categoria1, marca5);
+        Producto producto10 = new Producto(10L, "Historias de mujeres casadas", dateP15, "papel y carton", "/img/productos/historiaMujeres.jpg",13.0, area1, categoria1, marca4);
+        Producto producto11 = new Producto(11L, "Juego de cartas Introducción Yo-Kai 2", dateP16, "carton y plastico", "/img/productos/yoKai.jpg", 40.0, area1, categoria1, marca);
+        Producto producto12 = new Producto(12L, "Exit: el juego: El cementerio de las tinieblas", dateP14, "plastico", "/img/productos/exitCementerio.jpg",39.9, area1, categoria1, marca1);
 
         productoRepository.save(producto);
         productoRepository.save(producto1);
@@ -118,12 +129,35 @@ public class ProyectoFinalDeSpringApplication
         productoRepository.save(producto10);
         productoRepository.save(producto11);
         productoRepository.save(producto12);
+        productoRepository.save(producto13);
+        productoRepository.save(producto14);
+        productoRepository.save(producto15);
+        productoRepository.save(producto16);
 
-        Servicio servicio1 = new Servicio(1L, "Aeropuerto Adolfo Suarez", "https://graffica.info/wp-content/uploads/2014/05/01-aeropuerto-barajas-Adolfo-Suarez.jpg", date1, 14, 3, "vuelo a Milan", 109.0, area2, compania, categoria2);
-        Servicio servicio2 = new Servicio(2L, "Aeropuerto de El Prat", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Barcelona%E2%80%93El_Prat_Airport_logo.jpg/800px-Barcelona%E2%80%93El_Prat_Airport_logo.jpg?20130412135447", date1, 18, 5, "vuelo a Kiev", 1430.0, area2, compania1, categoria2);
-        Servicio servicio3 = new Servicio(3L, "Aeropuerto internacional Jorge Chavez", "https://www.tec.com.pe/wp-content/uploads/2016/07/lima-airport-e1469213052886.png", date1, 7, 12, "vuelo a Madrid", 190.0, area2, compania3, categoria2);
-        Servicio servicio4 = new Servicio(4L, "Aeropuerto de Paris", "https://i0.wp.com/www.elpoderdelasideas.com/wp-content/uploads/paris_aeroport_logo_detalles-600x398.png?resize=600%2C398", date1, 7, 11, "vuelo a Tokio", 250.0, area2, compania2, categoria3);
-        Servicio servicio5 = new Servicio(5L, "Aeropuerto de Roma", "https://thumbs.dreamstime.com/z/sello-de-roma-del-aeropuerto-fiumicino-logotipo-la-circunvalación-con-ubicación-en-el-mapa-italia-marcado-por-avión-ejemplo-204305151.jpg", date1, 7, 2, "vuelo a Barcelona", 199.0, area2, compania3, categoria1);
+        Compania compania = new Compania(1L, "Iberia", 1923, "media", "/img/companias/iberia.png");
+        Compania compania1 = new Compania(2L, "Air Europa", 1923, "media-alta", "/img/companias/airEuropa.png");
+        Compania compania2 = new Compania(3L, "Turkish Airlines", 1975, "alta", "/img/companias/turkishAirlines.png");
+        Compania compania3 = new Compania(4L, "Emirates", 2001, "muy alta", "/img/companias/emirates.png");
+
+
+        companiaRepository.save(compania);
+        companiaRepository.save(compania1);
+        companiaRepository.save(compania2);
+        companiaRepository.save(compania3);
+
+
+        Servicio servicio1 = new Servicio(1L, "Caja Regalo Iberia - Dos días de evasión", "/img/servicios/2Evasion.jpg", dateP5, 7, 2, "MADRID - PARIS - LONDRES - BARCELONA - SEVILLA", 159.0, area2, compania, categoria2);
+        Servicio servicio2 = new Servicio(2L, "Caja Regalo Air Europa - Sueños únicos para dos", "/img/servicios/sueñosUnicos.jpg", dateP1, 8, 3, "BARCELONA - MADRID - ROMA - PARIS - COPENHAGEN", 199.0, area2, compania1, categoria2);
+        Servicio servicio3 = new Servicio(3L, "Caja Regalo Emirates - Ilusiones para dos", "/img/servicios/2ilusion.jpg", dateP2, 7, 7, "ZARAGOZA -TOLEDO - JAEN - VALENCIA - LUGO", 299.0, area2, compania3, categoria2);
+        Servicio servicio4 = new Servicio(4L, "Caja Regalo Turkish Airlines - Selección mágica", "/img/servicios/seleccionMagica.jpg", dateP3, 7, 3, "MADRID - PARIS - BERNA - ATENAS - BAKU", 259.0, area2, compania2, categoria3);
+        Servicio servicio5 = new Servicio(5L, "Caja Regalo Emirates - Dos días con encanto", "/img/servicios/2Encanto.jpg", dateP4, 8, 2, "BILBAO - SAN SEBASTIAN - HUESCA - PAMPLONA - ALAVA", 99.0, area2, compania3, categoria1);
+        Servicio servicio6 = new Servicio(6L, "Caja Regalo Iberia - Viaje de desconexión", "/img/servicios/desconexion.jpg", dateP6, 8, 4, "ALMERIA - GRANADA - CORDOBA - CADIZ - HUELVA", 129.0, area2, compania, categoria1);
+        Servicio servicio7 = new Servicio(7L, "Caja regalo Air Europa - Tres días juntos por Europa", "/img/servicios/3europa.jpg", dateP7, 7, 3, "LIUBLIANA - ZAGREB - BUCAREST - SARAJEVO - NICOSIA", 359.0, area2, compania1, categoria1);
+        Servicio servicio8 = new Servicio(8L, "Caja regalo Emirates - Tres días mágicos por Europa", "/img/servicios/3magicos.jpg", dateP8, 8, 3, "PARIS - BERLIN - OSLO - REYKYAVIK - ESTOCOLMO", 309.0, area2, compania3, categoria1);
+        Servicio servicio9 = new Servicio(9L, "Caja regalo Iberia - Escapada cinco días", "/img/servicios/5escapada.jpg", dateP9, 8, 5, "LEON - BURGOS - VALLADOLID - AVILA - SEGOVIA", 209.0, area2, compania, categoria1);
+        Servicio servicio10 = new Servicio(10L, "Caja regalo Turkish Airlines - Mil y una noches de ensueño", "/img/servicios/milNoches.jpg", dateP10, 8, 7, "CUENCA - TOLEDO - GUADALAJARA - CIUDAD REAL - ALBACETE", 199.0, area2, compania2, categoria1);
+        Servicio servicio11 = new Servicio(11L, "Caja regalo Air Europa - Noche y cena para dos", "/img/servicios/nocheCena.jpg", dateP11, 7, 1, "NANTES - BRUJAS - PARIS - MANCHESTER - DUBLIN", 99.0, area2, compania1, categoria1);
+        Servicio servicio12 = new Servicio(12L, "Caja regalo Turkish Airlines - Felicidad para dos", "/img/servicios/felicidad.jpg", dateP12, 7, 4, "MARRUECOS - LA VALLETA - MENORCA - MALLORCA", 299.0, area2, compania2, categoria1);
 
 
 
@@ -132,13 +166,23 @@ public class ProyectoFinalDeSpringApplication
         servicioRepository.save(servicio3);
         servicioRepository.save(servicio4);
         servicioRepository.save(servicio5);
+        servicioRepository.save(servicio6);
+        servicioRepository.save(servicio7);
+        servicioRepository.save(servicio8);
+        servicioRepository.save(servicio9);
+        servicioRepository.save(servicio10);
+        servicioRepository.save(servicio11);
+        servicioRepository.save(servicio12);
 
-
-        Digital digital1 = new Digital(1L, "https://static.fnac-static.com/multimedia/Images/ES/MC/78/2d/8c/9186680/1540-1/tsp20220317130801/Microsoft-Office-pro-plus-2021-programas-para-descargar.jpg#a1782c09-c671-44a4-bd93-5cf038b94c2f", "Microsoft Office pro plus 2021", 12, 65261655, 130.0, area3, marca6, categoria3);
-        Digital digital2 = new Digital(2L, "https://static.fnac-static.com/multimedia/Images/ES/MC/9f/4f/8c/9195423/1540-1/tsp20220324130548/Software-antivirus-para-descargar-Kaspersky-Total-Security-ultima-version-3-dispositivos-1-ano.jpg#d4523bc6-783d-45c5-8b67-b5025fb0cdb5", "Kaspersky Total Security", 24, 65261656, 140.0, area3, marca7, categoria3);
-        Digital digital3 = new Digital(3L, "https://static.fnac-static.com/multimedia/Images/ES/MC/b3/4f/8c/9195443/1540-1/tsp20220324130548/Software-antivirus-para-descargar-McAfee-LiveSafe-Unlimited-ultima-version-10-dispositivos-1-ano.jpg#88c3c202-3504-40af-8b33-2a53cb391f30", "McAfee LiveSafe", 24, 65261657, 160.0,  area3, marca8, categoria3);
-        Digital digital4 = new Digital(4L, "https://static.fnac-static.com/multimedia/Images/ES/NR/35/14/59/5837877/1540-1.jpg", "Office 365 personal", 12, 65261658, 169.0, area3, marca6, categoria3);
-        Digital digital5 = new Digital(5L, "https://static.fnac-static.com/multimedia/Images/ES/NR/14/68/13/1271828/1540-1/tsp20160831114213/Kaspersky-Kis-2017-Internet-Security-Multi-Device.jpg", "Kaspersky Internet Security", 24, 65261659, 200.0, area3, marca7, categoria3);
+        Digital digital1 = new Digital(1L, "/img/digitales/office1.jpg", "Microsoft Office pro plus 2021", 12, 65261655, 130.0, area3, marca6, categoria3);
+        Digital digital2 = new Digital(2L, "/img/digitales/karpesky1.jpg", "Kaspersky Total Security", 24, 65261656, 140.0, area3, marca7, categoria3);
+        Digital digital3 = new Digital(3L, "/img/digitales/mcafee1.jpg", "McAfee LiveSafe", 24, 65261657, 160.0,  area3, marca3, categoria3);
+        Digital digital4 = new Digital(4L, "/img/digitales/office2.jpg", "Office 365 personal", 12, 65261658, 169.0, area3, marca6, categoria3);
+        Digital digital5 = new Digital(5L, "/img/digitales/karpesky2.jpg", "Kaspersky Internet Security", 24, 65261659, 50.0, area3, marca7, categoria3);
+        Digital digital6 = new Digital(6L, "/img/digitales/karpesky3.jpg", "Antivirus Kaspersky 2019", 12, 65261659, 90.0, area3, marca7, categoria3);
+        Digital digital7 = new Digital(7L, "/img/digitales/office3.jpg", "Office 2021 Hogar y Empresa Mac", 12, 65261658, 50.0, area3, marca6, categoria3);
+        Digital digital8 = new Digital(8L, "/img/digitales/mcafee2.jpg", "McAfee Total Protection 2017", 24, 65261657, 90.0,  area3, marca3, categoria3);
+        Digital digital9 = new Digital(8L, "/img/digitales/mcafee3.jpg", "McAfee Total Protection", 12, 65261657, 160.0,  area3, marca3, categoria3);
 
 
         digitalRepository.save(digital1);
@@ -146,6 +190,10 @@ public class ProyectoFinalDeSpringApplication
         digitalRepository.save(digital3);
         digitalRepository.save(digital4);
         digitalRepository.save(digital5);
+        digitalRepository.save(digital6);
+        digitalRepository.save(digital7);
+        digitalRepository.save(digital8);
+        digitalRepository.save(digital9);
 
     }
 }

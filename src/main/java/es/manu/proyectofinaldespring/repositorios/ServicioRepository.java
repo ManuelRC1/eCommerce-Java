@@ -1,5 +1,6 @@
 package es.manu.proyectofinaldespring.repositorios;
 
+import es.manu.proyectofinaldespring.entidades.Compra;
 import es.manu.proyectofinaldespring.entidades.Producto;
 import es.manu.proyectofinaldespring.entidades.Servicio;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +16,7 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
     @Query("select s from Servicio s where s.compania.id = ?1")
     List<Servicio> findByCompania_IdEquals(Long id);
 
-
+    List<Servicio> findByCompra(Compra compra);
 
 
 }

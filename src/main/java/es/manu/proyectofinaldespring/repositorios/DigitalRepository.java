@@ -1,7 +1,9 @@
 package es.manu.proyectofinaldespring.repositorios;
 
+import es.manu.proyectofinaldespring.entidades.Compra;
 import es.manu.proyectofinaldespring.entidades.Digital;
 import es.manu.proyectofinaldespring.entidades.Producto;
+import es.manu.proyectofinaldespring.entidades.Servicio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.NonNull;
@@ -16,6 +18,11 @@ public interface DigitalRepository extends JpaRepository<Digital, Long> {
 
     @Query("select d from Digital d where d.marca.id is not null")
     List<Digital> findByMarca_IdIsNotNull();
+
+    List<Digital> findByCompra(Compra compra);
+
+    List<Digital> findByMarca_IdEquals(Long id);
+
 
 
 

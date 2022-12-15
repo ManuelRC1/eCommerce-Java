@@ -2,6 +2,7 @@ package es.manu.proyectofinaldespring.repositorios;
 
 import es.manu.proyectofinaldespring.entidades.Compania;
 import es.manu.proyectofinaldespring.entidades.Compra;
+import es.manu.proyectofinaldespring.entidades.Marca;
 import es.manu.proyectofinaldespring.entidades.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +20,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
   List<Producto> findByMarca_IdIsNotNull();
 
   List<Producto> findByCompra(Compra compra);
+
+  List<Producto>  findByMarca_IdEquals(Long id);
+
+
+
+
 
 
 

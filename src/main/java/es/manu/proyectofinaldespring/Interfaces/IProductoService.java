@@ -1,5 +1,6 @@
 package es.manu.proyectofinaldespring.Interfaces;
 
+import es.manu.proyectofinaldespring.entidades.Compra;
 import es.manu.proyectofinaldespring.entidades.Producto;
 
 import java.sql.Date;
@@ -14,4 +15,6 @@ public interface IProductoService {
     List<Producto> productosId(List<Long> ids);
     List<Producto> buscador(String cadena);
     List<Producto> findByMarca_IdIsNotNull();
+    List<Producto> productosDeUnaCompra(Compra c);
+    List<Producto> findByMarca_IdEquals(Long id);
 }

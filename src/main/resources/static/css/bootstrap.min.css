@@ -104,12 +104,6 @@ address {
   line-height: inherit;
 }
 
-ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
 
 ol ol,
 ul ul,
@@ -7363,6 +7357,10 @@ button.bg-dark:focus {
   white-space: normal;
   -webkit-clip-path: none;
   clip-path: none;
+}
+
+.w-15 {
+  width: 15% !important;
 }
 
 .w-25 {

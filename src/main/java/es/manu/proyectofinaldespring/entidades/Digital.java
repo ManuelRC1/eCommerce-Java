@@ -1,10 +1,15 @@
 package es.manu.proyectofinaldespring.entidades;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
+@Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "digital")
 public class Digital {
     @Id
@@ -49,8 +54,6 @@ public class Digital {
     private Compra compra;
 
 
-    public Digital(){}
-
     public Digital(Long id, String imagen, String nombre, Integer duracion, Integer claveactivacion, Double precio, Area area, Marca marca, Categoria categoria) {
         this.id = id;
         this.imagen = imagen;
@@ -64,90 +67,6 @@ public class Digital {
 
     }
 
-    public double getPrecio() {
-        return precio;
-    }
 
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(Integer duracion) {
-        this.duracion = duracion;
-    }
-
-    public Integer getClaveactivacion() {
-        return claveactivacion;
-    }
-
-    public void setClaveactivacion(Integer claveActivacion) {
-        this.claveactivacion = claveActivacion;
-    }
-
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    public Compra getCompra() {
-        return compra;
-    }
-
-    public void setCompra(Compra compra) {
-        this.compra = compra;
-    }
 }

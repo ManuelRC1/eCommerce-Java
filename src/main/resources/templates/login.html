@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Login Form Design One | Fazt</title>
-    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="/static/css/login.css" th:href="@{/css/login.css}">
 </head>
 <body class="fondo">
 
@@ -11,7 +11,7 @@
     <img src="../static/img/logo.png" th:src="@{/img/logo.png}" class="avatar" alt="Avatar Image">
     <h1>Login</h1>
     <h5 th:text="${msg}"></h5>
-    <form th:action="@{/check}" method="POST">
+    <form th:action="@{/}" method="POST">
         <label for="correo_electronico"></label>
         <input type="text" name="correo" id="correo_electronico" placeholder="Correo " required>
 

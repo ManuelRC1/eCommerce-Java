@@ -4,6 +4,7 @@ import es.manu.proyectofinaldespring.Interfaces.IProductoService;
 import es.manu.proyectofinaldespring.entidades.Compra;
 import es.manu.proyectofinaldespring.entidades.Producto;
 import es.manu.proyectofinaldespring.repositorios.ProductoRepository;
+import es.manu.proyectofinaldespring.upload.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +18,13 @@ public class ProductoService implements IProductoService {
      @Autowired
      private ProductoRepository ProductoRepository;
 
-
-
     @Override
     public List<Producto> listar() {
         return ProductoRepository.findAll();
     }
 
 
-
+    @Override
     public Producto findById(Long id) {
         return ProductoRepository.findById(id).orElse(null);
     }
@@ -42,6 +41,7 @@ public class ProductoService implements IProductoService {
         return resultado;
     }
 
+    @Override
     public List<Producto> productosId(List<Long> ids){
         return ProductoRepository.findAllById(ids);
     }
@@ -56,7 +56,13 @@ public class ProductoService implements IProductoService {
         return ProductoRepository.findByMarca_IdIsNotNull();
     }
 
+    @Override
     public List<Producto> productosDeUnaCompra(Compra c){
         return ProductoRepository.findByCompra(c);
+    }
+
+    @Override
+    public List<Producto> findByMarca_IdEquals(Long id){
+        return ProductoRepository.findByMarca_IdEquals(id);
     }
 }

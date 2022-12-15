@@ -13,5 +13,6 @@ import java.util.Optional;
 @Repository
 public interface MarcasRepository extends JpaRepository<Marca, Long> {
 
-    List<Marca> findByNombre(String nombre);
+    List<Marca> findByNombreContains(String nombre);
+
 }

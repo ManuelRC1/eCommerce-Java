@@ -2,11 +2,15 @@ package es.manu.proyectofinaldespring.controlador.AControlador;
 
 import es.manu.proyectofinaldespring.entidades.Producto;
 import es.manu.proyectofinaldespring.servicio.*;
+import es.manu.proyectofinaldespring.upload.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import java.nio.file.Files;
 import java.util.List;
 
 @Controller
@@ -45,9 +49,8 @@ public class ProductoControlador {
     }
 
 
-    @PostMapping("crear/enviar")
+    @PostMapping("/crear/enviar")
     public String enviarNuevoProducto(Producto producto) {
-
         productoService.save(producto);
             return "redirect:/admin/tipo/producto/";
 

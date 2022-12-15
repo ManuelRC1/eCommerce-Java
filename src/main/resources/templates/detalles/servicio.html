@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../../static/css/prueba.css" th:href="@{/css/prueba.css}"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}"/>
 
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -19,62 +19,58 @@
     <!-- Nav -->
     <nav class="main-nav">
         <a th:href="@{/}">
-            <img src="../../static/img/logo.png" th:src="@{/img/logo.png}" alt="FNACuel" class="logo">
+            <img src="../../../static/img/logo.png" th:src="@{/img/logo.png}" alt="FNACuel" class="logo">
         </a>
         <ul class="main-menu">
             <li><a th:href="@{/}">Menu principal</a></li>
             <li><a th:href="@{/tipo/producto/}">Productos</a></li>
             <li><a th:href="@{/tipo/servicio/}">Servicios</a></li>
             <li><a th:href="@{/tipo/digital/}">Productos Digitales</a></li>
+            <li th:if="${session.usuario != null}" ><a th:href="@{/}" th:text="${session.usuario.nombre}"></a></li>
+            <li th:if="${session.usuario != null}" ><a th:href="@{/logout}">Cerrar sesion</a></li>
         </ul>
 
         <ul class="right-menu">
-            <li>
-                <a href="#">
-                    <i class="fas fa-search"></i>
+            <li  th:if="${session.usuario != null}">
+                <a th:href="@{/app/carrito/}">
+                    <i class="fas fa-shopping-cart"></i>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-shopping-cart"></i>
+            <li  th:if="${session.usuario != null}" >
+                <a th:href="@{/app/miscompras/}">
+                    <i class="fa-solid fa-list"></i>
                 </a>
             </li>
         </ul>
     </nav>
-</div>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="http://placehold.it/400x400" alt=""
-                     th:src="${#strings.isEmpty(servicio.imagen)} ? 'http://placehold.it/350x260' : ${servicio.imagen}"
-                     class="img-responsive"/>
-            </div>
-            <div class="col-md-8">
-                <h4>Titulo del libro</h4>
-                <h6 class="product-name" th:text="${servicio.nombre}"></h6>
-            </div>
-            <div class="col-md-8">
-                <h4>Material del libro</h4>
-                <h6 class="product-name" th:text="${servicio.duracion}"></h6>
-            </div>
-            <div class="col-md-8">
-                <h4>Fecha de lanzamiento</h4>
-                <h6 class="product-name" th:text="${servicio.localizacion}"></h6>
-            </div>
-            <div class="col-md-8">
-                <h4>Fecha de lanzamiento</h4>
-                <h6 class="product-name" th:text="${servicio.fecha}">€</h6>
-            </div>
-            <div class="col-md-8">
-                <h4>Fecha de lanzamiento</h4>
-                <h6 class="product-name" th:text="${servicio.horario}">€</h6>
-            </div>
-
+    <div class="contenedorDetalle">
+        <div class="imagenDetalle">
+            <img src="http://placehold.it/400x400" alt=""
+                 th:src="${#strings.isEmpty(servicio.imagen)} ? 'http://placehold.it/350x260' : ${servicio.imagen}"
+                 class="img-responsive"/>
+        </div>
+        <div class="detalleDetalles">
+            <h3>Nombre</h3>
+            <p th:text="${servicio.nombre}"></p>
+            <br/>
+            <h3>Localizaciones disponibles</h3>
+            <p th:text="${servicio.localizacion}"></p>
+            <br/>
+            <h3>Duracion (Dias)</h3>
+            <p th:text="${servicio.duracion}"></p>
+            <br/>
+            <h3>Fecha de Lanzamiento</h3>
+            <p th:text="${#dates.format(servicio.fecha, 'dd-MM-yyyy')}"></p>
+            <br/>
+            <h3>Precio</h3>
+            <p th:text="${#numbers.formatCurrency(servicio.precio)}"></p>
+            <br/>
+            <a th:href="@{/app/carrito/add/servicio/{id}(id=${servicio.id})}">Comprar <i class="fas fa-chevron-right"></i></a>
         </div>
     </div>
-</main>
+</div>
+
 <script src="https://kit.fontawesome.com/b8e772e179.js" crossorigin="anonymous"></script>
-<script src="../../static/js/prueba.js" th:src="@{/js/prueba.js}"></script>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 </body>
 </html>

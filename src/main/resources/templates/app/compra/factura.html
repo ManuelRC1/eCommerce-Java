@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../../../static/css/prueba.css" th:href="@{/css/prueba.css}"/>
+    <link rel="stylesheet" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -26,69 +28,74 @@
             <li><a th:href="@{/tipo/producto/}">Productos</a></li>
             <li><a th:href="@{/tipo/servicio/}">Servicios</a></li>
             <li><a th:href="@{/tipo/digital/}">Productos Digitales</a></li>
+            <li th:if="${session.usuario != null}"><a th:href="@{/}" th:text="${session.usuario.nombre}"></a></li>
+            <li th:if="${session.usuario != null}"><a th:href="@{/logout}">Cerrar sesion</a></li>
         </ul>
 
         <ul class="right-menu">
-            <li>
-                <a href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+            <li th:if="${session.usuario != null}">
+                <a th:href="@{/app/carrito/}">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </li>
+            <li th:if="${session.usuario != null}">
+                <a th:href="@{/app/miscompras/}">
+                    <i class="fa-solid fa-list"></i>
+                </a>
+            </li>
+
         </ul>
     </nav>
-    <div class="l-col-right ticket-wrap" aria-label="A fake boat ticket demonstrating mixing font weights and widths">
-        <div class="ticket" aria-hidden="true">
-            <div class="ticket__header">
-                <section class="avatar">
-                    <img th:src="@{/img/oveja_negra.webp}" src="../img/oveja_negra.webp">
-                </section>
-            </div>
-            <div class="ticket__body">
-            <span th:text="${session.usuario.nombre + ' ' + session.usuario.apellidos}"
-                  class="ticket__route">Fulano</span>
-                <p class="ticket__description">¡Gracias por comprar en Oveja Negra Shop!</p>
-                <div class="ticket__timing">
-                    <p>
-                        <span class="u-upper ticket__small-label">Date</span>
-                        <span th:text="${#dates.format(compra.fechaCompra,'dd/MMM/yyyy HH:mm')}" class="ticket__detail">10/10/2018</span>
-                    </p>
-
-                    <p>
-                        <span class="u-upper ticket__small-label">Compra</span>
-                        <span th:text="${compra.id}" class="ticket__detail">1</span>
-                    </p>
-                </div>
-
-            </div>
-            <table>
+    <div class="contenedorDetalle">
+        <div class="imagenDetalle">
+            <img alt="" src="../../../static/img/logo.png" th:src="@{/img/logo.png}" class="img-responsive"/>
+        </div>
+        <div class="detalleDetalles">
+            <h5>Nombre del comprador</h5>
+            <p th:text="${session.usuario.nombre + ' ' + session.usuario.apellidos}"></p>
+            <p>Gracias por comprar en FNACuel!</p>
+            <br/>
+            <h5>Fecha de compra</h5>
+            <p th:text="${#dates.format(compra.fecha_compra,'dd/MMM/yyyy HH:mm')}"></p>
+            <br/><br/>
+            <h5>Nª de compra</h5>
+            <span>Compra</span>
+            <span th:text="${compra.id}">1</span>
+            <br/><br/>
+            <table class="table table-striped">
                 <thead>
-                <tr>
-                    <td><strong>Producto</strong></td>
-                    <td class="text-right"><strong>Precio</strong></td>
-                </tr>
+                    <th>Producto</th>
+                    <th>Nombre</th>
                 </thead>
                 <tbody>
-                <tr th:each="producto : ${productos}">
-                    <td><span th:text="${producto.nombre}">Producto</span></td>
-                    <td class="text-right"><span th:text="${#numbers.formatCurrency(producto.precio)}">123€</span></td>
+                <tr th:if="${digitales != null}" th:each="digital : ${digitales}">
+                    <td><img th:src="${digital.imagen}" width="100" height="100" alt="img" src=""></td>
+                    <td th:text="${digital.nombre}"></td>
+                    <td><span th:text="${#numbers.formatCurrency(digital.precio)}">123€</span></td>
+                </tr>
+                <tr th:if="${productos != null}" th:each="producto : ${productos}">
+                    <td><img th:src="${producto.imagen}" width="100" height="100" alt="img" src=""></td>
+                    <td th:text="${producto.titulo}"></td>
+                    <td><span th:text="${#numbers.formatCurrency(producto.precio)}">123€</span></td>
+                </tr>
+                <tr th:if="${servicios != null}" th:each="servicio : ${servicios}">
+                    <td><img th:src="${servicio.imagen}" width="100" height="100" alt="img" src=""></td>
+                    <td th:text="${servicio.nombre}"></td>
+                    <td><span th:text="${#numbers.formatCurrency(servicio.precio)}">123€</span></td>
                 </tr>
                 <tr>
-                    <td class="thick-line text-right"><strong>Total</strong></td>
-                    <td class="thick-line text-right"><span
-                            th:text="${#numbers.formatCurrency(total_compra)}">123€</span></td>
+                    <td><strong>TOTAL</strong></td>
+                    <td></td>
+                    <td><span th:text="${#numbers.formatCurrency(total_compra)}">123€</span></td>
                 </tr>
                 </tbody>
             </table>
+            <br/>
         </div>
     </div>
 </div>
 
 <script src="https://kit.fontawesome.com/b8e772e179.js" crossorigin="anonymous"></script>
-<script src="../../../static/js/prueba.js" th:src="@{/js/prueba.js}"></script>
+<script src="../../../static/js/script.js" th:src="@{/js/script.js}"></script>
 </body>
 </html>

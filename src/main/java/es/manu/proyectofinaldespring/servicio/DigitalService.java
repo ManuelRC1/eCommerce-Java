@@ -1,9 +1,9 @@
 package es.manu.proyectofinaldespring.servicio;
 
 import es.manu.proyectofinaldespring.Interfaces.IDigitalService;
-import es.manu.proyectofinaldespring.entidades.Categoria;
-import es.manu.proyectofinaldespring.entidades.Digital;
+import es.manu.proyectofinaldespring.entidades.*;
 import es.manu.proyectofinaldespring.repositorios.DigitalRepository;
+import es.manu.proyectofinaldespring.upload.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +45,20 @@ public class DigitalService implements IDigitalService {
     @Override
     public List<Digital> findByMarca_IdIsNotNull() {
         return digitalRepository.findByMarca_IdIsNotNull();
+    }
+
+    @Override
+    public List<Digital> digitalesId(List<Long> ids){
+        return digitalRepository.findAllById(ids);
+    }
+
+    @Override
+    public List<Digital> digitalesDeUnaCompra(Compra c){
+        return digitalRepository.findByCompra(c);
+    }
+
+    @Override
+    public List<Digital> findByMarca_IdEquals(Long id){
+        return digitalRepository.findByMarca_IdEquals(id);
     }
 }

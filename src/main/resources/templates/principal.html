@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <title>Manuel Ruz</title>
+
+</head>
+<body>
+<div class="menu-btn">
+    <i class="fas fa-bars fa-2x"></i>
+</div>
+
+<div class="container">
+    <!-- Nav -->
+    <nav class="main-nav">
+        <a th:href="@{/}">
+            <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="FNACuel" class="logo">
+        </a>
+        <ul class="main-menu">
+            <li><a th:href="@{/}">Menu principal</a></li>
+            <li><a th:href="@{/tipo/producto/}">Productos</a></li>
+            <li><a th:href="@{/tipo/servicio/}">Servicios</a></li>
+            <li><a th:href="@{/tipo/digital/}">Productos Digitales</a></li>
+            <li th:if="${session.usuario != null}" ><a href="" th:text="${session.usuario.nombre}"></a></li>
+            <li th:if="${session.usuario != null}" ><a th:href="@{/logout}">Cerrar sesion</a></li>
+
+
+        </ul>
+
+        <ul class="right-menu">
+            <li  th:if="${session.usuario != null}">
+                <a th:href="@{/app/carrito/}">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </li>
+            <li  th:if="${session.usuario != null}" >
+                <a th:href="@{/app/miscompras/}">
+                    <i class="fa-solid fa-list"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Showcase -->
+    <header class="showcase">
+        <h2>¿Aun no te has registrado?</h2>
+        <p>
+            Registrate en unos minutos, ¡y de forma gratuita!
+        </p>
+        <a th:href="@{/register}" class="btn">
+            Registrarse <i class="fas fa-chevron-right"></i>
+        </a>
+    </header>
+
+    <!-- Home cards 1 -->
+    <section class="cart-cards">
+        <div>
+            <a th:href="@{/tipo/producto/}">
+                <img src="../static/img/categorias/productos.jpg" th:src="@{/img/categorias/productos.jpg}" alt="">
+            </a>
+            <h3>Productos</h3>
+            <a th:href="@{/tipo/producto/}">Acceder <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div>
+            <a th:href="@{/tipo/servicio/}">
+                <img src="../static/img/categorias/servicios.jpg" th:src="@{/img/categorias/servicios.jpg}" alt="">
+            </a>
+            <h3>Servicios</h3>
+            <a th:href="@{/tipo/servicio/}">Acceder <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div>
+            <a th:href="@{/tipo/digital/}">
+                <img src="../static/img/categorias/digitales.jpg" th:src="@{/img/categorias/digitales.jpg}" alt="">
+            </a>
+            <h3>Productos Digitales</h3>
+            <a th:href="@{/tipo/digital/}">Acceder <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Xbox -->
+    <section class="marcas">
+        <div class="content">
+            <h2>Principales Marcas</h2>
+            <p>Navege interactua entre las diferentes marcas que ofrecemos</p>
+            <a th:href="@{/tipo/marca/}" class="btn">
+                Ver mas <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Home cards 2 -->
+    <section class="home-cards">
+        <div th:each="marcas : ${marca}">
+            <img th:src="${#strings.isEmpty(marcas.imagen)} ? 'http://placehold.it/350x260' : ${marcas.imagen}"/>
+            <h3 th:text="${marcas.nombre}"></h3>
+            <a th:href="@{/tipo/marca/{id}(id=${marcas.id})}">Ver mas <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Carbon -->
+    <section class="carbon dark">
+        <div class="content">
+            <h2>Comprometerse con el carbono negativo</h2>
+            <p>FNACuel será carbono negativo para 2030 y para 2050 lo eliminaremos
+                todo el carbono que la empresa ha emitido desde su fundación en 2020</p>
+            <a th:href="@{/tipo/compania/}" class="btn">
+                Ver mas <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+    <section class="home-cards">
+        <div th:each="companias : ${compania}">
+            <img th:src="${#strings.isEmpty(companias.imagen)} ? 'http://placehold.it/350x260' : ${companias.imagen}"/>
+            <h3 th:text="${companias.nombre}"></h3>
+            <a th:href="@{/tipo/compania/{id}(id=${companias.id})}">Ver servicios <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Follow -->
+    <section class="follow">
+        <a href="https://facebook.com">
+            <img src="https://i.ibb.co/LrVMXNR/social-fb.png" alt="Facebook">
+        </a>
+        <a href="https://twitter.com">
+            <img src="https://i.ibb.co/vJvbLwm/social-twitter.png" alt="Twitter">
+        </a>
+        <a href="https://linkedin.com">
+            <img src="https://i.ibb.co/b30HMhR/social-linkedin.png" alt="Linkedin">
+        </a>
+    </section>
+</div>
+</body>
+
+<script src="https://kit.fontawesome.com/b8e772e179.js" crossorigin="anonymous"></script>
+<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+</html>

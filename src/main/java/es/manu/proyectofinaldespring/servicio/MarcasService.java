@@ -43,6 +43,6 @@ public class MarcasService implements IMarcasService {
 
     @Override
     public List<Marca> buscador(String cadena) {
-        return marcasRepository.findByNombre(cadena);
+        return marcasRepository.findByNombreContains(cadena);
     }
 }

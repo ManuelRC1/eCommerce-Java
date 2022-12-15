@@ -1,7 +1,7 @@
 package es.manu.proyectofinaldespring.controlador.Controlador;
 
-import es.manu.proyectofinaldespring.entidades.Cliente;
-import es.manu.proyectofinaldespring.servicio.ClienteService;
+import es.manu.proyectofinaldespring.entidades.*;
+import es.manu.proyectofinaldespring.servicio.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -26,6 +27,21 @@ public class LoginController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private CompaniaService companiaService;
+
+    @Autowired
+    private ProductoService productoService;
+
+    @Autowired
+    private DigitalService digitalService;
+
+    @Autowired
+    private ServicioService servicioService;
+
+    @Autowired
+    private MarcasService marcasService;
 
 
 
@@ -55,7 +71,7 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/check")
+    @PostMapping("/")
     public String Postlogin(@RequestParam("correo") String correo, @RequestParam("contrasena") String codificado, HttpSession session) {
         Cliente cliente = clienteService.findByCorreo_electronico(correo);
         String passwdCode = cliente.getContrasena();
