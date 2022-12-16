@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -27,22 +26,6 @@ public class LoginController {
 
     @Autowired
     private ClienteService clienteService;
-
-    @Autowired
-    private CompaniaService companiaService;
-
-    @Autowired
-    private ProductoService productoService;
-
-    @Autowired
-    private DigitalService digitalService;
-
-    @Autowired
-    private ServicioService servicioService;
-
-    @Autowired
-    private MarcasService marcasService;
-
 
 
     @GetMapping("/register")
@@ -61,6 +44,13 @@ public class LoginController {
             return "register";
         }
         at.addFlashAttribute("msg", "Registro Guardado");
+        List<Cliente> clientes = clienteService.listar();
+
+        for (Cliente value : clientes) {
+            if (cliente.getCorreo_electronico().equals(value.getCorreo_electronico())) {
+                return "redirect:/register";
+            }
+        }
         clienteService.registro(cliente, passwordEncoder);
         return "redirect:/login";
     }

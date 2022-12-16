@@ -11,6 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>ProyectoFinalDeSpring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>ProyectoFinalDeSpring</name>
     <description>ProyectoFinalDeSpring</description>
     <properties>
@@ -132,6 +133,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

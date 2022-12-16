@@ -101,20 +101,20 @@ public class ProyectoFinalDeSpringApplication
         Producto producto = new Producto(1L, "La Vall de la Llum", dateP1, "papel y carton", "/img/productos/laVallDeLaLlum.jpg", 15.0,  area1, categoria1, marca2);
         Producto producto1 = new Producto(2L, "Violeta", dateP2, "papel", "/img/productos/violeta.jpg", 10.0, area1, categoria1, marca5);
         Producto producto2 = new Producto(3L, "La Bestia", dateP3, "papel y carton", "/img/productos/bestia.jpg", 11.0, area1, categoria1, marca4);
-        Producto producto15 = new Producto(15L, "Réplica Star Wars - Casco de piloto de Luke Skywalker", dateP4, "carton y plastico", "/img/productos/casco.jpg", 99.9, area1, categoria1, marca);
+        Producto producto15 = new Producto(15L, "Réplica Star Wars - Casco de piloto de Luke Skywalker", dateP4, "carton y plastico", "/img/productos/casco.jpg", 99.0, area1, categoria1, marca);
         Producto producto3 = new Producto(4L, "El Juicio del Agua", dateP5, "papel y carton", "/img/productos/juicioDelAgua.jpg", 16.0, area1, categoria1, marca2);
         Producto producto4 = new Producto(5L, "La Primera Detective", dateP6, "papel y carton", "/img/productos/primeraDetective.jpg", 11.0, area1, categoria1, marca4);
         Producto producto16 = new Producto(16L, "Mi Pequeña Biblioteca (Peppa Pig)", dateP7, "plastico", "/img/productos/peppaPig.jpg",20.0, area1, categoria1, marca1);
         Producto producto5 = new Producto(5L, "Bajo la Misma Estrella", dateP8, "papel y carton", "/img/productos/mismaEstrella.jpg", 25.0, area1, categoria1, marca5);
         Producto producto6 = new Producto(6L, "Todo arde", dateP9, "papel y carton", "/img/productos/todoArde.jpg", 9.0, area1, categoria1, marca4);
         Producto producto7 = new Producto(7L, "Todo va a mejorar", dateP10, "papel", "/img/productos/todoMejorar.jpg", 8.0, area1, categoria1, marca5);
-        Producto producto13 = new Producto(13L, "Bop it! Star Wars", dateP11, "carton y plastico", "/img/productos/Bop_itStarWars.jpg", 30.9, area1, categoria1, marca);
+        Producto producto13 = new Producto(13L, "Bop it! Star Wars", dateP11, "carton y plastico", "/img/productos/Bop_itStarWars.jpg", 30.0, area1, categoria1, marca);
         Producto producto14 = new Producto(14L, "Tragabolas", dateP12, "plastico", "/img/productos/tragabolas.jpg",20.0, area1, categoria1, marca1);
-        Producto producto8 = new Producto(8L, "Lejos de Luisiana", dateP13, "papel y carton", "/img/productos/lejosLuisiana.jpg", 21.5, area1, categoria1, marca4);
+        Producto producto8 = new Producto(8L, "Lejos de Luisiana", dateP13, "papel y carton", "/img/productos/lejosLuisiana.jpg", 21.0, area1, categoria1, marca4);
         Producto producto9 = new Producto(9L, "Se tiene que morir mucha gente", dateP14, "papel y carton", "/img/productos/morirGente.jpg", 12.0, area1, categoria1, marca5);
         Producto producto10 = new Producto(10L, "Historias de mujeres casadas", dateP15, "papel y carton", "/img/productos/historiaMujeres.jpg",13.0, area1, categoria1, marca4);
         Producto producto11 = new Producto(11L, "Juego de cartas Introducción Yo-Kai 2", dateP16, "carton y plastico", "/img/productos/yoKai.jpg", 40.0, area1, categoria1, marca);
-        Producto producto12 = new Producto(12L, "Exit: el juego: El cementerio de las tinieblas", dateP14, "plastico", "/img/productos/exitCementerio.jpg",39.9, area1, categoria1, marca1);
+        Producto producto12 = new Producto(12L, "Exit: el juego: El cementerio de las tinieblas", dateP14, "plastico", "/img/productos/exitCementerio.jpg",39.0, area1, categoria1, marca1);
 
         productoRepository.save(producto);
         productoRepository.save(producto1);
@@ -148,7 +148,7 @@ public class ProyectoFinalDeSpringApplication
 
         Servicio servicio1 = new Servicio(1L, "Caja Regalo Iberia - Dos días de evasión", "/img/servicios/2Evasion.jpg", dateP5, 7, 2, "MADRID - PARIS - LONDRES - BARCELONA - SEVILLA", 159.0, area2, compania, categoria2);
         Servicio servicio2 = new Servicio(2L, "Caja Regalo Air Europa - Sueños únicos para dos", "/img/servicios/sueñosUnicos.jpg", dateP1, 8, 3, "BARCELONA - MADRID - ROMA - PARIS - COPENHAGEN", 199.0, area2, compania1, categoria2);
-        Servicio servicio3 = new Servicio(3L, "Caja Regalo Emirates - Ilusiones para dos", "/img/servicios/2ilusion.jpg", dateP2, 7, 7, "ZARAGOZA -TOLEDO - JAEN - VALENCIA - LUGO", 299.0, area2, compania3, categoria2);
+        Servicio servicio3 = new Servicio(3L, "Caja Regalo Emirates - Ilusiones para dos", "/img/servicios/2Ilusion.jpg", dateP2, 7, 7, "ZARAGOZA -TOLEDO - JAEN - VALENCIA - LUGO", 299.0, area2, compania3, categoria2);
         Servicio servicio4 = new Servicio(4L, "Caja Regalo Turkish Airlines - Selección mágica", "/img/servicios/seleccionMagica.jpg", dateP3, 7, 3, "MADRID - PARIS - BERNA - ATENAS - BAKU", 259.0, area2, compania2, categoria3);
         Servicio servicio5 = new Servicio(5L, "Caja Regalo Emirates - Dos días con encanto", "/img/servicios/2Encanto.jpg", dateP4, 8, 2, "BILBAO - SAN SEBASTIAN - HUESCA - PAMPLONA - ALAVA", 99.0, area2, compania3, categoria1);
         Servicio servicio6 = new Servicio(6L, "Caja Regalo Iberia - Viaje de desconexión", "/img/servicios/desconexion.jpg", dateP6, 8, 4, "ALMERIA - GRANADA - CORDOBA - CADIZ - HUELVA", 129.0, area2, compania, categoria1);

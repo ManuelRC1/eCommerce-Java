@@ -58,20 +58,6 @@ public class ComprarController {
         return (contenido == null) ? null : digitalService.digitalesId(contenido);
     }
 
-    @ModelAttribute("total_carrito")
-    public Double totalCarrito(){
-        List<Producto> productosCarrito = productosCarrito();
-        List<Servicio> servicioCarrito = servicioCarrito();
-
-
-        if (productosCarrito != null){
-            return productosCarrito
-                    .stream().mapToDouble(p -> p.getPrecio())
-                    .sum();
-        }
-        return 0.0;
-    }
-
     @ModelAttribute("mis_compras")
     public List<Compra> misCompras(){
         cliente = (Cliente) session.getAttribute("usuario");
